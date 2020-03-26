@@ -1,0 +1,47 @@
+@startuml
+
+title Classes Java Group Project
+
+class Launcher {
+    -time: int
+    +setenviroment()int
+    +generatePeople(): int,int,int,int
+}
+
+class Elevator {
+    -Capacity: int
+    -peopleIn: int
+    -doorsPosition: boolean
+    -currentFloor
+    -Capacity: ArrayList Person
+    +doorControl()
+    +goToFloor()
+    
+    }
+    
+
+class Person {
+    -requestFloor()
+    }
+    
+
+class Client extends Person {
+    +impatientLevel
+    }
+
+class Developer extends Person {
+    +goToTopHalf()
+    }
+
+class Employees extends Person
+
+class Maintence extends Person {
+    +goToTopFloor()
+    }
+
+
+
+
+class Floor
+
+@enduml
