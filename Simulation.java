@@ -12,7 +12,6 @@ public class Simulation extends Application {
 	private int tick;
 	private Random random;
 	private String testingGit;
-	private String SecondTest;
 	public Simulation() {
 	building = new Building();
 	elevator = new Elevator();
