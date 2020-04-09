@@ -5,8 +5,7 @@ import java.util.Queue;
 
 public class Floor {
 	
-	private String name;
-	private Building building;
+	//private Building building;
 	private Elevator elevators;
 	private ArrayList<Person> peopleOnFloor;
 	private ArrayList<Person> waitingQueue;
@@ -19,11 +18,12 @@ public class Floor {
 		ArrayList<String> Floors = new ArrayList<String>();
 	}
 
-	public int setFloors(){
-		while(numFloors<7) {
+	public int initializeFloors(){
+		while(numFloors<=7) {
 		Floors.add("Floor " + numFloors);
 		numFloors++;
 		}
+		System.out.println(Floors.size());
 	}
 
 	public int addToQ(){
@@ -36,15 +36,19 @@ public class Floor {
 
 	public float arrive(p: Person){
 		person.getCurrentFloor();
+		peopleOnFloor.add(p);
 	}
 
 	public float leave(p: Person){
 		person.setCurrentFloor();
+		peopleOnFloor.remove(p);
 	}
 
 	public int getFloors(){
 		return elevators.getCurrentFloor();
 	}
+	
+	//individual people know where they are going-> subclasses of person class
 
 }
 
