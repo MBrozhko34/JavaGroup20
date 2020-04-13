@@ -1,4 +1,4 @@
-package elevatorSimulation;
+package courseWork;
 
 public class Elevator {
 
@@ -12,7 +12,6 @@ public class Elevator {
 		private int howManyPeopleIn;
 		private boolean isOpen;
 		private boolean isLimitReached;
-		Queue q;
 		private boolean isDoorOpen;
 
 		public Elevator() {
@@ -28,8 +27,9 @@ public class Elevator {
 
 		public void addPeople(Person p) {
 			if (q.isEmpty() && p.getFloor() == currentFloor) {
-				for (i = 0; i<q.getSize() && i < peopleInElevator.size())peopleInElevator.add(q.leaveQFront(); i++) {
+				for (i = 0; i<q.getSize() && i < peopleInElevator.size(); i++) {
 					peopleInElevator.add(p);
+					peopleWaiting.remove(0);
 				}
 			}
 
