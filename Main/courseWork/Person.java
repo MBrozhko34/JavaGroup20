@@ -1,4 +1,4 @@
-package elevatorSimulation;
+package courseWork;
 
 import java.util.Random;
 

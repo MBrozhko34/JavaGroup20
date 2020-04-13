@@ -1,11 +1,10 @@
-package elevatorSimulation;
-
-import javafx.application.Application;
+package courseWork;
+//package Main;
+//import javafx.application.Application;
 import javafx.stage.Stage;
 
-public class Simulation extends Application {
+public class Simulation {
 	
-}
 	private Building building;
 	private Elevator elevator;
 	private Person person;
@@ -17,16 +16,8 @@ public class Simulation extends Application {
 	building = new Building();
 	elevator = new Elevator();
 	tick = 0;
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		launch(args);
-
+	
+	public static void main(String[] args){ 
+		System.out.println("WorkingFinally");
 	}
-	@Override
-	public void start(Stage arg0) throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
-
 }
