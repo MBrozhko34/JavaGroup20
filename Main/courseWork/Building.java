@@ -5,30 +5,26 @@ import java.util.ArrayList;
 public class Building {
 	
 	private ArrayList<Floor> floors;
-<<<<<<< HEAD
-	private Elevator elevator;
+	private Elevator elevator1;
+	private int howManyFloors;
 	
 	public Building() {
 		floors = new ArrayList<Floor>();
-	
-=======
-	private howManyFloors;
-	
-	public Building() {
-		floors = new ArrayList<Floor>();
-		howManyFloors = floor.size()
->>>>>>> 44142c01595fc8bac3579a1c710ff550a1cd93fd
+		howManyFloors = 7;
 	}
 	
-	public void addFloors() {
+	public void addFloors(int nooffloors) {
 		//create floors then pass into this function
-		floors.setFloors();
-		System.out.println(floors.size());
-		
+		for (int i=0; i<nooffloors+1; i++) {
+			floors.add(new Floor());
+		}
+		System.out.println("We have created "+floors.size()+"number of floors");
 	}
+	
 	
 	public void registerElevator() {
-		elevator.setElevator();
+		elevator1 = new Elevator();
+		System.out.println("Elevator Created");
 	}
 	
 	

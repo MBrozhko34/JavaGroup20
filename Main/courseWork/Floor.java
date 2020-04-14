@@ -18,34 +18,32 @@ public class Floor {
 		ArrayList<String> Floors = new ArrayList<String>();
 	}
 
-	public int initializeFloors(){
-		while(numFloors<=7) {
-		Floors.add("Floor " + numFloors);
-		numFloors++;
-		}
-		System.out.println(Floors.size());
+	public void addToQ(Person P){
+		waitingQueue.add(P);
 	}
 
-	public int addToQ(){
-		waitingQueue.add();
-	}
-
-	public int removeFromQ(){
+	public Person removeFromQ(){
+		Person leaving = waitingQueue.get(0);
 		waitingQueue.remove(0);
+		return leaving;
 	}
 
-	public float arrive(p: Person){
-		person.getCurrentFloor();
-		peopleOnFloor.add(p);
-	}
+//	public float arrive(p: Person){
+//		person.getCurrentFloor();
+//		peopleOnFloor.add(p);
+//	}
+//
+//	public float leave(p: Person){
+//		person.setCurrentFloor();
+//		peopleOnFloor.remove(p);
+//	}
 
-	public float leave(p: Person){
-		person.setCurrentFloor();
-		peopleOnFloor.remove(p);
-	}
-
-	public int getFloors(){
-		return elevators.getCurrentFloor();
+//	public int getFloors(){
+//		return elevators.getCurrentFloor();
+//	}
+	
+	public int sizeQueue() {
+		return waitingQueue.size();
 	}
 	
 	//individual people know where they are going-> subclasses of person class
