@@ -1,5 +1,7 @@
 package courseWork;
 
+import java.util.ArrayList;
+
 public class Elevator {
 
 		private Floor currentFloor;
@@ -16,7 +18,7 @@ public class Elevator {
 
 		public Elevator() {
 
-			currentFloor = building.getFloor(0);
+			currentFloor = 0;
 			idle = 0;
 			isOpen = true;
 			howManyPeopleIn = 0;
@@ -25,11 +27,11 @@ public class Elevator {
 
 		}
 
-		public void addPeople(Person p) {
-			if (q.isEmpty() && p.getFloor() == currentFloor) {
-				for (i = 0; i<q.getSize() && i < peopleInElevator.size(); i++) {
+		public void addPeople(Person p, Floor f) { 
+			if (isLimitReached == false && p.currentFloor == currentFloor) {  //floor needs to have a method to return 
+				for (i=0; i<q.getSize() && i < peopleInElevator.size(); i++) { //what floor number it is
 					peopleInElevator.add(p);
-					peopleWaiting.remove(0);
+					f.removeFromQ();
 				}
 			}
 
@@ -39,11 +41,9 @@ public class Elevator {
 			return peopleInElevator.size();
 		}
 
-		public boolean isLimitReached() {
+		public void isLimitReached() {
 			if (howManyPeopleIn() == spaceLimit ) {
-				return isLimitReached true;
-			} else {
-				return false;
+				isLimitReached=true;
 			}
 		}
 

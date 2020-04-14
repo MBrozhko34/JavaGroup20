@@ -6,7 +6,7 @@ import java.util.Queue;
 public class Floor {
 	
 	//private Building building;
-	private Elevator elevators;
+	private Elevator elevators;  //why does the floor need the elevator class?
 	private ArrayList<Person> peopleOnFloor;
 	private ArrayList<Person> waitingQueue;
 	private int numFloors = 0;
