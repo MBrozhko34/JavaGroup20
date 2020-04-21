@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Building {
 	
 	private ArrayList<Floor> floors;
-	private Elevator elevator1;
+	private ArrayList<Elevator> elevators;
 	private int howManyFloors;
 	
 	public Building() {
@@ -22,9 +22,12 @@ public class Building {
 	}
 	
 	
-	public void registerElevator() {
-		elevator1 = new Elevator();
-		System.out.println("Elevator Created");
+	public void registerElevator(int noofelevators) {
+		elevators = new ArrayList<Elevator>(noofelevators);
+		for (int i=0; i < noofelevators+1; i++) {
+			elevators.add(new Elevator());
+			System.out.println("Elevator Created");
+		}
 	}
 	
 	
