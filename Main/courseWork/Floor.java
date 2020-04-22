@@ -6,16 +6,17 @@ import java.util.Queue;
 public class Floor {
 	
 	//private Building building;
-	private Elevator elevators;  //why does the floor need the elevator class?
 	private ArrayList<Person> peopleOnFloor;
 	private ArrayList<Person> waitingQueue;
-	private int numFloors = 0;
 	private ArrayList<String> Floors;
+	public boolean goUp;
+	public boolean goDown;
 	
 	public Floor() {
 		peopleOnFloor = new ArrayList<Person>();
 		waitingQueue = new ArrayList<Person>();
-		ArrayList<String> Floors = new ArrayList<String>();
+		goUp = false;
+		goDown = false;
 	}
 
 	public void addToQ(Person P){

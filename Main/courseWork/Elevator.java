@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Elevator {
 
-		private int currentFloor;
+		public int currentFloor;
 		private ArrayList<Person> peopleInElevator;
 		private Building building;
 		private int spaceLimit = 4;
@@ -15,6 +15,8 @@ public class Elevator {
 		private boolean isOpen;
 		private boolean isLimitReached;
 		private boolean isDoorOpen;
+		public boolean goingUp;
+		public boolean goingDown;
 
 		public Elevator() {
 
@@ -51,15 +53,24 @@ public class Elevator {
 				isLimitReached=true;
 			}
 		}
+		
+		public int currentFloor() {
+			return currentFloor;
+		}
+		
+		public void moveliftup() {
+			currentFloor = currentFloor + 1;
+		}
+		
+		public void moveliftdown() {
+			currentFloor = currentFloor - 1;
+		}
 
-		// to finish
-
-//		public Floor moveTo(direction d) {
+//		public Floor Direction() {
 //			RequestList r;
 //			Person p;
 //			for (i = 0; i< peopleInElevator(); i++) {
-//				if (r.getFloor() == currentFloor)
-//			}
+//				if (r.getFloor() == currentFloor)			}
 //		}
 
 }

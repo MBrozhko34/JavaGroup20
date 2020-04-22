@@ -1,4 +1,4 @@
-
+package courseWork;
 import java.util.Random;
 
 public class Person {
@@ -36,7 +36,7 @@ public class Person {
 	}
 	
 	public void setFloor(Elevator E) {
-		if (whatFloor == E.currentFloor) {
+		if (whatFloor == E.currentFloor()) {
 			currentFloor = whatFloor;
 		}
 		

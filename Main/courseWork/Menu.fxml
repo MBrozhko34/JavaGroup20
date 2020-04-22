@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="419.0" prefWidth="255.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Spinner fx:id="elevatorcap" layoutX="123.0" layoutY="210.0" prefHeight="25.0" prefWidth="100.0" />
+      <Spinner fx:id="ticks" layoutX="123.0" layoutY="119.0" prefHeight="25.0" prefWidth="100.0" />
+      <Spinner fx:id="floors" layoutX="123.0" layoutY="160.0" prefHeight="25.0" prefWidth="100.0" />
+      <Spinner fx:id="employees" layoutX="123.0" layoutY="250.0" prefHeight="25.0" prefWidth="100.0" />
+      <Spinner fx:id="mugdevs" layoutX="123.0" layoutY="288.0" prefHeight="25.0" prefWidth="100.0" />
+      <Spinner fx:id="goggledevs" layoutX="123.0" layoutY="327.0" prefHeight="25.0" prefWidth="100.0" />
+      <Text layoutX="22.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ticks" wrappingWidth="87.47003364562988" />
+      <Text layoutX="34.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Floors" />
+      <Text layoutX="18.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Elevator Capacity" />
+      <Text layoutX="22.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employees" />
+      <Text layoutX="32.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mug Devs" />
+      <Text layoutX="29.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Goggle Devs" />
+      <Button fx:id="run" layoutX="109.0" layoutY="363.0" mnemonicParsing="false" onAction="#runClicked" text="Run" />
+      <Slider layoutX="96.0" layoutY="7.0" />
+      <Slider layoutX="96.0" layoutY="34.0" />
+      <Spinner layoutX="123.0" layoutY="74.0" prefHeight="25.0" prefWidth="100.0" />
+      <Text layoutX="40.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="P:" />
+      <Text layoutX="39.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Q:" />
+      <Text layoutX="33.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seed:" />
+   </children>
+</AnchorPane>

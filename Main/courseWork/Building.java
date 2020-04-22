@@ -30,6 +30,22 @@ public class Building {
 		}
 	}
 	
+	public int returnfloors() {
+		return howManyFloors;
+	}
 	
+	public void moveliftUp() {
+		Elevator elevator1 = elevators.get(0);
+		for (int i = 0; i<7;i++) {      //check logic with micheal
+			Floor tempfloor = floors.get(i+1);
+			if (tempfloor.goUp) {
+				elevator1.moveliftup();
+			} else {
+				elevator1.moveliftdown();
+			}
+			
+		}
+			
+	}
 
 }
