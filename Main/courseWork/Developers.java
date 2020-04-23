@@ -18,7 +18,7 @@ public class Developers extends Person {
 	}
 	System.out.println(currentFloor);
 	
-	//Function needed to out
+	//Function needed be added to Person class to allow for change in floor after first floor:
 	//public void endFloor(int end) {
 	//	currentFloor=end;
 	//}	
