@@ -7,7 +7,7 @@ public class Floor {
 	
 	//private Building building;
 	private ArrayList<Person> peopleOnFloor;
-	private ArrayList<Person> waitingQueue;
+	public ArrayList<Person> waitingQueue;
 	private ArrayList<String> Floors;
 	public boolean goUp;
 	public boolean goDown;

@@ -13,13 +13,7 @@ public class Simulation {
 	
 
 	public void run() {
-		System.out.println("Working");
-		Building building1 = new Building();
-		System.out.println("Building Created");
-		int noOfFloors = MenuVars.getFloors();
-		System.out.println(noOfFloors);
-		//building1.addFloors(MenuVars.getFloors());
-		building1.registerElevator(1);
-		System.out.println("Building Setup");
+		Building building1 = new Building(MenuVars);
+		building1.tick();
 	}
 }

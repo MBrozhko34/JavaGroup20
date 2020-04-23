@@ -7,27 +7,39 @@ public class Building {
 	private ArrayList<Floor> floors;
 	private ArrayList<Elevator> elevators;
 	private int howManyFloors;
+	private int noElevators;
+	private int elevatorcap;
 	
-	public Building() {
+	public Building(MenuController m) {
 		floors = new ArrayList<Floor>();
-		howManyFloors = 7;
+		howManyFloors = m.getFloors();
+		noElevators = m.getElevators();
+		elevatorcap = m.getElevatorcap();
+		create();
+		
 	}
 	
-	public void addFloors(int nooffloors) {
+	public void addFloors() {
 		//create floors then pass into this function
-		for (int i=0; i<nooffloors+1; i++) {
+		for (int i=0; i<howManyFloors; i++) {
 			floors.add(new Floor());
 		}
-		System.out.println("We have created "+floors.size()+"number of floors");
+		System.out.println("We have created "+floors.size()+" floors");
 	}
 	
-	
-	public void registerElevator(int noofelevators) {
-		elevators = new ArrayList<Elevator>(noofelevators);
-		for (int i=0; i < noofelevators+1; i++) {
-			elevators.add(new Elevator());
-			System.out.println("Elevator Created");
+
+	public void registerElevator() {
+		elevators = new ArrayList<Elevator>();
+		for (int i=0; i < noElevators; i++) {
+			elevators.add(new Elevator(elevatorcap));
 		}
+		System.out.println("We have created "+elevators.size()+" Elevators");
+	}
+	
+	public void create() {
+		addFloors();
+		registerElevator();
+		System.out.println("Building Created");
 	}
 	
 	public int returnfloors() {
@@ -46,6 +58,10 @@ public class Building {
 			
 		}
 			
+	}
+	
+	public void tick() {
+		System.out.println("Need to code the logic here");
 	}
 
 }

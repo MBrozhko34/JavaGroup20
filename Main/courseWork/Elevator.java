@@ -7,38 +7,36 @@ public class Elevator {
 		public int currentFloor;
 		private ArrayList<Person> peopleInElevator;
 		private Building building;
-		private int spaceLimit = 4;
+		private int spaceLimit;
 		public static int up = 2;
 		public static int down = 1;
 		public static int idle = 0;
 		private int howManyPeopleIn;
 		private boolean isOpen;
-		private boolean isLimitReached;
+		private int spaceLeft;
 		private boolean isDoorOpen;
 		public boolean goingUp;
 		public boolean goingDown;
 
-		public Elevator() {
-
+		public Elevator(int c) {
 			currentFloor = 0;
 			idle = 0;
 			isOpen = true;
+			spaceLimit = c;
 			howManyPeopleIn = 0;
-			isLimitReached = false;
+			spaceLeft = spaceLimit;
 			peopleInElevator = new ArrayList<Person>();
 
 		}
 
-		public void addPeople(Person p, Floor f) { 
-			if (isLimitReached == false) {  //floor needs to have a method to return 
-				for (int i=0; i < f.sizeQueue(); i++) { //what floor number it is
-					if (isLimitReached == true) {
-						break;
-					} else {
-						Person entering = f.removeFromQ();
-						peopleInElevator.add(entering);
-						isLimitReached();
-					}
+		public void addPeople(Floor f) {   //floor needs to have a method to return 
+			for (int i=0; i < f.sizeQueue(); i++) { //what floor number it is
+				Person buffer = f.waitingQueue.get(i);
+				if (buffer.getSpace() <= spaceLeft) {
+					f.removeFromQ();
+					peopleInElevator.add(buffer);
+				} else {
+					//leave the person in the floor queue is there isnt space
 				}
 			}
 
@@ -46,12 +44,6 @@ public class Elevator {
 
 		public int howManyPeopleIn() {
 			return peopleInElevator.size();
-		}
-
-		public void isLimitReached() {
-			if (howManyPeopleIn() == spaceLimit ) {
-				isLimitReached=true;
-			}
 		}
 		
 		public int currentFloor() {

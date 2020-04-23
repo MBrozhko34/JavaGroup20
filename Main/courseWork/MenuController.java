@@ -44,6 +44,7 @@ public class MenuController {
 	@FXML
 	private Spinner<Integer> elevators;
 	
+
 	public MenuController() {
 		
 	}
@@ -78,6 +79,15 @@ public class MenuController {
 	
 	public int getFloors() {
 		return floors.getValue();
+	}
+	
+	public int getElevatorcap() {
+		return elevatorcap.getValue();
+	}
+
+
+	public int getElevators() {
+		return elevators.getValue();
 	}
 
 	@FXML 
