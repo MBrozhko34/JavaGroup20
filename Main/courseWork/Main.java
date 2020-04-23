@@ -13,10 +13,10 @@ public class Main extends Application {
 		try {
 			final FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource("Menu.fxml"));
-			//loader.setController(new ListController(d)); //we need to create the controller
+			loader.setController(new MenuController());
 			final Parent root = loader.load();
 
-			final Scene scene = new Scene(root, 400, 300);
+			final Scene scene = new Scene(root, 300, 500);
 			primaryStage.setTitle("List database");
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -26,7 +26,6 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		launch(args);
 
 	}
