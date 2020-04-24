@@ -66,5 +66,11 @@ public class Elevator {
 //			for (i = 0; i< peopleInElevator(); i++) {
 //				if (r.getFloor() == currentFloor)			}
 //		}
+		
+		public void tick() {
+			//people that need to leave will get out
+			//people on the floor waiting will get on 
+			// the lift will move
+		}
 
 }
