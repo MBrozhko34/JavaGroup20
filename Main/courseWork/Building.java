@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Building {
 	
 	private ArrayList<Floor> floors;
-	private ArrayList<Elevator> elevators;
+	public ArrayList<Elevator> elevators;
 	private int howManyFloors;
 	private int noElevators;
 	private int elevatorcap;
@@ -22,9 +22,9 @@ public class Building {
 	public void addFloors() {
 		//create floors then pass into this function
 		for (int i=0; i<howManyFloors; i++) {
-			floors.add(new Floor());
+			getFloors().add(new Floor(i));
 		}
-		System.out.println("We have created "+floors.size()+" floors");
+		System.out.println("We have created "+getFloors().size()+" floors");
 	}
 	
 
@@ -46,10 +46,14 @@ public class Building {
 		return howManyFloors;
 	}
 	
+	public ArrayList<Floor> getFloors() {
+		return floors;
+	}
+
 	public void moveliftUp() {
 		Elevator elevator1 = elevators.get(0);
 		for (int i = 0; i<7;i++) {      //check logic with micheal
-			Floor tempfloor = floors.get(i+1);
+			Floor tempfloor = getFloors().get(i+1);
 			if (tempfloor.goUp) {
 				elevator1.moveliftup();
 			} else {

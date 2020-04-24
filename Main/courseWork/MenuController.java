@@ -90,6 +90,34 @@ public class MenuController {
 		return elevators.getValue();
 	}
 
+	public Slider getPslider() {
+		return Pslider;
+	}
+
+	public Slider getQslider() {
+		return Qslider;
+	}
+
+	public int getSeed() {
+		return seed.getValue();
+	}
+
+	public int getTicks() {
+		return ticks.getValue();
+	}
+
+	public int getEmployees() {
+		return employees.getValue();
+	}
+
+	public int getMugdevs() {
+		return mugdevs.getValue();
+	}
+
+	public int getGoggledevs() {
+		return goggledevs.getValue();
+	}
+
 	@FXML 
 	public void runClicked() {
 		Simulation s = new Simulation(this);

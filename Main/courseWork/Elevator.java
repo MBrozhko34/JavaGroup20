@@ -34,7 +34,7 @@ public class Elevator {
 				Person buffer = f.waitingQueue.get(i);
 				if (buffer.getSpace() <= spaceLeft) {
 					f.removeFromQ();
-					peopleInElevator.add(buffer);
+					getPeopleInElevator().add(buffer);
 					spaceLeft = spaceLeft - buffer.getSpace();
 					howManyPeopleIn =+1;
 				} else {
@@ -47,9 +47,9 @@ public class Elevator {
 		
 		public void removePeople(Floor f) {
 			for (int i=0; i<howManyPeopleIn; i++) {
-				Person buffer = peopleInElevator.get(i);
+				Person buffer = getPeopleInElevator().get(i);
 				if (buffer.getWhatFloor()==currentFloor) {
-					peopleInElevator.remove(i);
+					getPeopleInElevator().remove(i);
 					f.arrive(buffer);
 					spaceLeft = spaceLeft + buffer.getSpace();
 					howManyPeopleIn =-1;
@@ -58,13 +58,17 @@ public class Elevator {
 		}
 
 		public int howManyPeopleIn() {
-			return peopleInElevator.size();
+			return getPeopleInElevator().size();
 		}
 		
 		public int currentFloor() {
 			return currentFloor;
 		}
 		
+		public ArrayList<Person> getPeopleInElevator() {
+			return peopleInElevator;
+		}
+
 		public void moveliftup() {
 			currentFloor = currentFloor + 1;
 		}

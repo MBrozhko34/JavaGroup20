@@ -7,6 +7,7 @@ import java.util.Random;
 public class Simulation {
 	
 	MenuController MenuVars;
+	TextBasedUI Ui;
 
 
 	public Simulation(MenuController m) {
@@ -18,6 +19,9 @@ public class Simulation {
 	public void run() {
 		Building building1 = new Building(MenuVars);
 		Random randomness = new Random();
-		building1.tick();
+		PeopleCreator p = new PeopleCreator(MenuVars, building1);
+		p.createDevs();
+		Ui = new TextBasedUI(building1);
+		Ui.showUI();
 	}
 }
