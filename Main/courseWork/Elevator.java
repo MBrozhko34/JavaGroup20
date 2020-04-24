@@ -35,8 +35,10 @@ public class Elevator {
 				if (buffer.getSpace() <= spaceLeft) {
 					f.removeFromQ();
 					peopleInElevator.add(buffer);
+					spaceLeft = spaceLeft - buffer.getSpace();
 				} else {
 					//leave the person in the floor queue is there isnt space
+					System.out.println("There was an Error");
 				}
 			}
 

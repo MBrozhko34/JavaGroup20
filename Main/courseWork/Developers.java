@@ -1,25 +1,21 @@
+package courseWork;
+
 public class Developers extends Person {
 	String name = "Developers";
-	int spaceRequired = 1;
-	currentFloor=0;
+	int minFloor;
+	int maxFloor;
+	int range;
 	
-	public Developers(String name, int spaceRequired) {
+	public Developers(String name, int spaceRequired, Building b) {
 		super(name,spaceRequired);
-		whatFloor=random(5,7);
-		int end=random(5,7);
-		endFloor(end);
+		minFloor = b.getHowManyFloors()-1/2;
+		maxFloor = b.getHowManyFloors()-1;
+		range = (maxFloor - minFloor) +1;
+		choose();
+		
 	}
 	
-	@Override
-	public Person(String name, int spaceRequired) {
-		this.name = name;
-		currentFloor=whatFloor;
-		this.spaceRequired=spaceRequired;
+	public void choose() {
+		whatFloor = (int)(Math.random()*range) + minFloor;
 	}
-	System.out.println(currentFloor);
-	
-	//Function needed be added to Person class to allow for change in floor after first floor:
-	//public void endFloor(int end) {
-	//	currentFloor=end;
-	//}	
 }

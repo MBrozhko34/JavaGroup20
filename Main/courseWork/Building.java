@@ -63,5 +63,9 @@ public class Building {
 	public void tick() {
 		System.out.println("Need to code the logic here");
 	}
+	
+	public int getHowManyFloors() {
+		return howManyFloors;
+	}
 
 }
