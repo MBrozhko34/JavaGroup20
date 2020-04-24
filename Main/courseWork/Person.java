@@ -29,11 +29,11 @@ public class Person {
 		return currentFloor;
 	}
 	
-	public void chooseFloor(int numberOfFloors) {
-		//generate random number for floor to go to
-		Random R = new Random();
-		whatFloor = R.nextInt((numberOfFloors - 1) + 1) + 1;
-	}
+//	public void chooseFloor(int numberOfFloors) {
+//		//generate random number for floor to go to
+//		Random R = new Random();
+//		whatFloor = R.nextInt((numberOfFloors - 1) + 1) + 1;
+//	}
 	
 	public void setFloor(Elevator E) {
 		if (whatFloor == E.currentFloor()) {
@@ -45,4 +45,9 @@ public class Person {
 	public int getSpace() {
 		return spaceRequired;
 	}
+	
+	//Function needed be added to Person class to allow for change in floor after first floor:
+		public void Destination(int end) {
+			currentFloor=end;
+		}	
 }
