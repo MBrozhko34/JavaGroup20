@@ -29,19 +29,15 @@ public class Floor {
 		return leaving;
 	}
 
-//	public float arrive(p: Person){
-//		person.getCurrentFloor();
-//		peopleOnFloor.add(p);
-//	}
-//
+	public void arrive(Person P){
+		peopleOnFloor.add(P);
+	}
+
 //	public float leave(p: Person){
 //		person.setCurrentFloor();
 //		peopleOnFloor.remove(p);
 //	}
 
-//	public int getFloors(){
-//		return elevators.getCurrentFloor();
-//	}
 	
 	public int sizeQueue() {
 		return waitingQueue.size();

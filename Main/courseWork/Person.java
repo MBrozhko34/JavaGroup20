@@ -49,5 +49,21 @@ public class Person {
 	//Function needed be added to Person class to allow for change in floor after first floor:
 		public void Destination(int end) {
 			currentFloor=end;
+		}
+
+		public int getCurrentFloor() {
+			return currentFloor;
+		}
+
+		public void setCurrentFloor(int currentFloor) {
+			this.currentFloor = currentFloor;
+		}
+
+		public int getWhatFloor() {
+			return whatFloor;
+		}
+
+		public void setWhatFloor(int whatFloor) {
+			this.whatFloor = whatFloor;
 		}	
 }

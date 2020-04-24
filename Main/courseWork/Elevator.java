@@ -36,12 +36,25 @@ public class Elevator {
 					f.removeFromQ();
 					peopleInElevator.add(buffer);
 					spaceLeft = spaceLeft - buffer.getSpace();
+					howManyPeopleIn =+1;
 				} else {
 					//leave the person in the floor queue is there isnt space
 					System.out.println("There was an Error");
 				}
 			}
 
+		}
+		
+		public void removePeople(Floor f) {
+			for (int i=0; i<howManyPeopleIn; i++) {
+				Person buffer = peopleInElevator.get(i);
+				if (buffer.getWhatFloor()==currentFloor) {
+					peopleInElevator.remove(i);
+					f.arrive(buffer);
+					spaceLeft = spaceLeft + buffer.getSpace();
+					howManyPeopleIn =-1;
+				}
+			}
 		}
 
 		public int howManyPeopleIn() {
