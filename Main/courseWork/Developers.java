@@ -4,13 +4,12 @@ import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Developers extends Person {
-	String name;
 	int minFloor;
 	int maxFloor;
 	int range;
 	
 	public Developers(String name, int spaceRequired, Building b) {
-		super(name,spaceRequired);
+		super(name,spaceRequired, b);
 		minFloor = (b.getHowManyFloors()-1)/2;
 		maxFloor = b.getHowManyFloors()-1;
 		range = (maxFloor - minFloor) +1;

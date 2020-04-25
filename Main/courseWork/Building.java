@@ -31,7 +31,7 @@ public class Building {
 	public void registerElevator() {
 		elevators = new ArrayList<Elevator>();
 		for (int i=0; i < noElevators; i++) {
-			elevators.add(new Elevator(elevatorcap));
+			elevators.add(new Elevator(elevatorcap,i,this));
 		}
 		System.out.println("We have created "+elevators.size()+" Elevators");
 	}
@@ -65,7 +65,9 @@ public class Building {
 	}
 	
 	public void tick() {
-		System.out.println("Need to code the logic here");
+		for (Elevator e:elevators) {
+			e.tick();
+		}
 	}
 	
 	public int getHowManyFloors() {

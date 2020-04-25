@@ -24,10 +24,8 @@ public class Floor {
 		waitingQueue.add(P);
 	}
 
-	public Person removeFromQ(){
-		Person leaving = waitingQueue.get(0);
+	public void removeFromQ(){
 		waitingQueue.remove(0);
-		return leaving;
 	}
 
 	public void arrive(Person P){

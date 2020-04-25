@@ -37,7 +37,11 @@ public class TextBasedUI {
 				System.out.println("");
 			}
 		}
+		
 		for (Elevator e: b.elevators) {
+			System.out.println("Elevator: "+e.getid());
+			System.out.println("Elevator is at floor: "+e.getCurrentFloor());
+			System.out.println("Space in elevator is:"+e.getSpaceLeft());
 			if (e.getPeopleInElevator().isEmpty()) {
 				System.out.println("There is nobody in this lift");
 				System.out.println("");
@@ -45,12 +49,10 @@ public class TextBasedUI {
 				for (Person p: e.getPeopleInElevator()) {
 					elevatorppl = elevatorppl+p.returnName()+" ";
 				}
-				System.out.println(peoplewaiting);
+				System.out.println(elevatorppl);
 				System.out.println("");
 			}
 		}
-		System.out.println("---------------------------");
-
 	}
 }
 

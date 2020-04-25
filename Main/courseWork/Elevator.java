@@ -6,6 +6,7 @@ public class Elevator {
 
 		public int currentFloor;
 		private ArrayList<Person> peopleInElevator;
+		private ArrayList<Integer> floorsCalled; 
 		private Building building;
 		private int spaceLimit;
 		public static int up = 2;
@@ -17,8 +18,20 @@ public class Elevator {
 		private boolean isDoorOpen;
 		public boolean goingUp;
 		public boolean goingDown;
+		private int id;
 
-		public Elevator(int c) {
+		public int getCurrentFloor() {
+			return currentFloor;
+		}
+		
+		public int getSpaceLeft() {
+			return spaceLeft;
+		}
+
+		public int getid() {
+			return id;
+		}
+		public Elevator(int c, int id,Building b) {
 			currentFloor = 0;
 			idle = 0;
 			isOpen = true;
@@ -26,6 +39,8 @@ public class Elevator {
 			howManyPeopleIn = 0;
 			spaceLeft = spaceLimit;
 			peopleInElevator = new ArrayList<Person>();
+			this.id = id;
+			building = b;
 
 		}
 
@@ -34,7 +49,7 @@ public class Elevator {
 				Person buffer = f.waitingQueue.get(i);
 				if (buffer.getSpace() <= spaceLeft) {
 					f.removeFromQ();
-					getPeopleInElevator().add(buffer);
+					peopleInElevator.add(buffer);
 					spaceLeft = spaceLeft - buffer.getSpace();
 					howManyPeopleIn =+1;
 				} else {
@@ -61,9 +76,6 @@ public class Elevator {
 			return getPeopleInElevator().size();
 		}
 		
-		public int currentFloor() {
-			return currentFloor;
-		}
 		
 		public ArrayList<Person> getPeopleInElevator() {
 			return peopleInElevator;
@@ -76,6 +88,10 @@ public class Elevator {
 		public void moveliftdown() {
 			currentFloor = currentFloor - 1;
 		}
+		
+		public void move() {
+			moveliftup();
+		}
 
 //		public Floor Direction() {
 //			RequestList r;
@@ -85,6 +101,9 @@ public class Elevator {
 //		}
 		
 		public void tick() {
+			removePeople(building.getFloors().get(currentFloor));
+			addPeople(building.getFloors().get(currentFloor));
+			move();
 			//people that need to leave will get out
 			//people on the floor waiting will get on 
 			// the lift will move

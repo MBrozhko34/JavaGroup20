@@ -9,7 +9,7 @@ public class Person {
 	String direction;
 	int whatFloor; // to store what floor the guy wants to go to
 	
-	public Person (String name, int space) {
+	public Person (String name, int space,Building b) {
 		this.name = name;
 		currentFloor = 0;
 		spaceRequired = space;
@@ -36,7 +36,7 @@ public class Person {
 //	}
 	
 	public void setFloor(Elevator E) {
-		if (whatFloor == E.currentFloor()) {
+		if (whatFloor == E.getCurrentFloor()) {
 			currentFloor = whatFloor;
 		}
 		

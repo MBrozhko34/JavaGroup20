@@ -21,7 +21,11 @@ public class Simulation {
 		Random randomness = new Random();
 		PeopleCreator p = new PeopleCreator(MenuVars, building1);
 		p.createDevs();
-		Ui = new TextBasedUI(building1);
-		Ui.showUI();
+		
+		for (int i=0; i< MenuVars.getTicks();i++) {
+			Ui = new TextBasedUI(building1);
+			Ui.showUI();
+			building1.tick();
+		}
 	}
 }
