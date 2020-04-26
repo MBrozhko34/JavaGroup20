@@ -24,8 +24,8 @@ public class Floor {
 		waitingQueue.add(P);
 	}
 
-	public void removeFromQ(){
-		waitingQueue.remove(0);
+	public void removeFromQ(Person P){
+		waitingQueue.remove(P);
 	}
 
 	public void arrive(Person P){
