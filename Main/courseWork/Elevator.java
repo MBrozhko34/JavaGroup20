@@ -45,13 +45,14 @@ public class Elevator {
 		}
 
 		public void addPeople(Floor f) {   //floor needs to have a method to return 
-			for (int i=0; i < f.sizeQueue(); i++) { //what floor number it is
+			for (int i=0; i < f.sizeQueue();i++) { //what floor number it is
 				Person buffer = f.waitingQueue.get(i);
 				if (buffer.getSpace() <= spaceLeft) {
 					f.removeFromQ();
+					i -=1;
 					peopleInElevator.add(buffer);
 					spaceLeft = spaceLeft - buffer.getSpace();
-					howManyPeopleIn =+1;
+					howManyPeopleIn = peopleInElevator.size();
 				} else {
 					//leave the person in the floor queue is there isnt space
 					System.out.println("There was an Error");
@@ -65,6 +66,7 @@ public class Elevator {
 				Person buffer = getPeopleInElevator().get(i);
 				if (buffer.getWhatFloor()==currentFloor) {
 					getPeopleInElevator().remove(i);
+					i -=1;
 					f.arrive(buffer);
 					spaceLeft = spaceLeft + buffer.getSpace();
 					howManyPeopleIn =-1;
