@@ -69,7 +69,7 @@ public class Elevator {
 					i -=1;
 					f.arrive(buffer);
 					spaceLeft = spaceLeft + buffer.getSpace();
-					howManyPeopleIn =-1;
+					howManyPeopleIn = howManyPeopleIn - 1;
 				}
 			}
 		}

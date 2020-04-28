@@ -4,7 +4,6 @@ public class TextBasedUI {
 
 	Building b;
 	String peoplewaiting = "People waiting for Lift: ";
-	String floorpeople = "People on this floor are: ";
 	String elevatorppl = "People in this Elevator are ";
 
 	public TextBasedUI(Building b) {
@@ -30,6 +29,7 @@ public class TextBasedUI {
 				System.out.println("There is nobody Currently at this floor");
 				System.out.println("");
 			} else {
+				String floorpeople = "People on this floor are: ";
 				for (Person p: f.peopleOnFloor) {
 					floorpeople = floorpeople+p.returnName()+" ";
 				}
@@ -37,6 +37,7 @@ public class TextBasedUI {
 				System.out.println("");
 			}
 		}
+		
 		
 		for (Elevator e: b.elevators) {
 			System.out.println("Elevator: "+e.getid());
