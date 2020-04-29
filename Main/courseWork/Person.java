@@ -46,6 +46,14 @@ public class Person {
 		return spaceRequired;
 	}
 	
+	public int generateTime(int a, int b) { //Generates random number for time on floor
+		Random rd = new Random();
+		int minTickTime = a*6;
+		int maxTickTime = b*6;
+		int value = rd.nextInt((maxTickTime-minTickTime)+1) + minTickTime;
+		return value;
+	}
+	
 	//Function needed be added to Person class to allow for change in floor after first floor:
 		public void Destination(int end) {
 			currentFloor=end;
