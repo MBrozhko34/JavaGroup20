@@ -19,8 +19,8 @@ public class Simulation {
 	public void run() {
 		Building building1 = new Building(MenuVars);
 		Random randomness = new Random();
-		PeopleCreator p = new PeopleCreator(MenuVars, building1);
-		p.createDevs();
+		ArrivalSimulator s = new ArrivalSimulator(randomness);
+		PeopleCreator p = new PeopleCreator(MenuVars, building1,s);
 		
 		for (int i=0; i< MenuVars.getTicks();i++) {
 			Ui = new TextBasedUI(building1);

@@ -16,8 +16,7 @@ public class Elevator {
 		private boolean isOpen;
 		private int spaceLeft;
 		private boolean isDoorOpen;
-		public boolean goingUp;
-		public boolean goingDown;
+		public int direction;
 		private int id;
 
 		public int getCurrentFloor() {
@@ -41,6 +40,7 @@ public class Elevator {
 			peopleInElevator = new ArrayList<Person>();
 			this.id = id;
 			building = b;
+			direction = 1;
 
 		}
 
@@ -67,6 +67,7 @@ public class Elevator {
 				if (buffer.getWhatFloor()==currentFloor) {
 					getPeopleInElevator().remove(i);
 					i -=1;
+					buffer.setCurrentFloor(currentFloor);
 					f.arrive(buffer);
 					spaceLeft = spaceLeft + buffer.getSpace();
 					howManyPeopleIn = howManyPeopleIn - 1;
@@ -92,7 +93,17 @@ public class Elevator {
 		}
 		
 		public void move() {
-			moveliftup();
+			if (currentFloor == (building.getHowManyFloors())-1) {
+				direction = -1;
+				moveliftdown();
+			} else if (currentFloor == 0) {
+				direction = 1;
+				moveliftup();
+			} else if (currentFloor < building.getHowManyFloors() && direction == -1) {
+				moveliftdown();
+			} else if (currentFloor < building.getHowManyFloors() && direction == 1) {
+				moveliftup();
+			}
 		}
 
 //		public Floor Direction() {

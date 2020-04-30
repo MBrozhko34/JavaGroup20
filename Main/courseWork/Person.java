@@ -8,11 +8,16 @@ public class Person {
 	int spaceRequired;
 	String direction;
 	int whatFloor; // to store what floor the guy wants to go to
+	Building building;
+	public String test;
+	ArrivalSimulator s;
 	
-	public Person (String name, int space,Building b) {
+	public Person (String name, int space,Building b, ArrivalSimulator s) {
 		this.name = name;
 		currentFloor = 0;
 		spaceRequired = space;
+		building = b;
+		this.s = s;
 	}
 	
 	public String returnName() {
@@ -74,4 +79,8 @@ public class Person {
 		public void setWhatFloor(int whatFloor) {
 			this.whatFloor = whatFloor;
 		}	
+		
+		public void tick() {
+			System.out.println("Hello");
+		}
 }

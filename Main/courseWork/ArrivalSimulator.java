@@ -14,12 +14,12 @@ public class ArrivalSimulator {
 //	private float ArrivalProbability;
 //	private float LeaveProbability;
 	
-	private Simulation simulation;
 	private Random random;
 	
-	public ArrivalSimulator(Simulation simulation, Random random) {
+	public ArrivalSimulator(Random random) {
 		this.random = random;
-		this.simulation=simulation;
+		generatePProbability();
+		generateQProbability();
 	}
 	
 //	public void setArrivalProbability(float a) {
@@ -54,18 +54,19 @@ public class ArrivalSimulator {
 		qList.add(0.01);
 	}
 	
-	public double getPProbability() {
-		generatePProbability();
-		Random rand1 = new Random();
-		P_probability=pList.get(rand1.nextInt(pList.size()));
-		System.out.println(P_probability);
-		return P_probability;
+	public boolean getPProbability() {
+		P_probability=pList.get(random.nextInt(pList.size()));
+		Double nextdouble = 0.00000001;//random.nextDouble();
+		if (P_probability>nextdouble) {
+			System.out.println("P value: "+P_probability+"Random Value "+nextdouble);
+			return true;
+		}
+		System.out.println("P value: "+P_probability+"Random Value "+nextdouble);
+		return false;
 	}
 	
 	public double getQProbability() {
-		generateQProbability();
-		Random rand2 = new Random();
-		Q_probability=qList.get(rand2.nextInt(qList.size()));
+		Q_probability=qList.get(random.nextInt(qList.size()));
 		System.out.println(Q_probability);
 		return P_probability;
 	}

@@ -51,6 +51,16 @@ public class Floor {
 		this.floornumber = floornumber;
 	}
 	
+	public void tick() {
+		if (peopleOnFloor.isEmpty()) {
+			System.out.println("Floor is empty");
+		} else {
+			for (Person p: peopleOnFloor) {
+				p.tick();
+			}
+		}
+	}
+	
 	//individual people know where they are going-> subclasses of person class
 
 }

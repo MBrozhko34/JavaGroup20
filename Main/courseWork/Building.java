@@ -49,24 +49,13 @@ public class Building {
 	public ArrayList<Floor> getFloors() {
 		return floors;
 	}
-
-	public void moveliftUp() {
-		Elevator elevator1 = elevators.get(0);
-		for (int i = 0; i<7;i++) {      //check logic with micheal
-			Floor tempfloor = getFloors().get(i+1);
-			if (tempfloor.goUp) {
-				elevator1.moveliftup();
-			} else {
-				elevator1.moveliftdown();
-			}
-			
-		}
-			
-	}
 	
 	public void tick() {
 		for (Elevator e:elevators) {
 			e.tick();
+		}
+		for (Floor f: floors) {
+			f.tick();
 		}
 	}
 	
