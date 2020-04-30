@@ -23,15 +23,16 @@ public class Clients extends Person {
 		whatFloor = (int)(Math.random()*range) + minFloor;
 	}
 	
-	public void tick(Floor f, Person p) {
-		timer=timer+10;
+	public void tick(Floor f, Person p) { //takes a destination floor and a person as a a parameter
+		timer=timer+10;  //increments timer by 10 seconds or 1 tick
 		f.setFloornumber(whatFloor);
 		if(timer == p.generateTime(10, 30)) {
+			f.setFloornumber(0);
 			f.addToQ(p);
 		}
 	}
 	
-	public int getSimulationTime() {
+	public int getSimulationTime() { //returns the total time of the simulation
 		return timer;
 	}
 	

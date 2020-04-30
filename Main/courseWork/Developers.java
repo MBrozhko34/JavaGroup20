@@ -24,8 +24,8 @@ public class Developers extends Person {
 		whatFloor = r.nextInt(maxFloor - minFloor +1)+minFloor;
 	}
 	
-	public void tick(Floor f, Person p) {
-		timer=timer+10;
+	public void tick(Floor f, Person p) { //takes a destination floor and a person as a a parameter
+		timer=timer+10;  //increments timer by 10 seconds or 1 tick
 		f.setFloornumber(whatFloor);
 		Random rd = new Random();
 		if(s.getPProbability()>rd.nextDouble()) {
@@ -33,7 +33,7 @@ public class Developers extends Person {
 		}
 	}
 	
-	public int getSimulationsTime() {
+	public int getSimulationsTime() {  //returns the total time of the simulation
 		return timer;
 	}
 }
