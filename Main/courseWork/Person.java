@@ -11,6 +11,7 @@ public class Person {
 	Building building;
 	public String test;
 	ArrivalSimulator s;
+	public boolean wantToMove;
 	
 	public Person (String name, int space,Building b, ArrivalSimulator s) {
 		this.name = name;
@@ -18,6 +19,7 @@ public class Person {
 		spaceRequired = space;
 		building = b;
 		this.s = s;
+		wantToMove = false;
 	}
 	
 	public String returnName() {
@@ -57,6 +59,7 @@ public class Person {
 		int maxTickTime = b*6;
 		int value = rd.nextInt((maxTickTime-minTickTime)+1) + minTickTime;
 		return value;
+		
 	}
 	
 	//Function needed be added to Person class to allow for change in floor after first floor:

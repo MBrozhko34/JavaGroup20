@@ -26,8 +26,8 @@ public class Employees extends Person {
 		timer=timer+10; //increments timer by 10 seconds or 1 tick
 		//f.setFloornumber(whatFloor);
 		if (s.getPProbability()) {
-			building.getFloors().get(currentFloor).addToQ(this);
-			building.getFloors().get(currentFloor).leave(this);
+			wantToMove = true;
+			choose();
 		}
 	}
 	

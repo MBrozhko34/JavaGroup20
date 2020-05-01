@@ -24,6 +24,7 @@ public class TextBasedUI {
 					peoplewaiting = peoplewaiting+p.returnName()+" "+p.whatFloor+" ";
 				}
 				System.out.println(peoplewaiting);
+				peoplewaiting = "People waiting for Lift: ";
 			}
 			if (f.peopleOnFloor.isEmpty()) {
 				System.out.println("There is nobody Currently at this floor");
@@ -35,6 +36,7 @@ public class TextBasedUI {
 				}
 				System.out.println(floorpeople);
 				System.out.println("");
+				floorpeople = "People on this floor are: ";
 			}
 		}
 		
@@ -48,10 +50,11 @@ public class TextBasedUI {
 				System.out.println("");
 			} else {
 				for (Person p: e.getPeopleInElevator()) {
-					elevatorppl = elevatorppl+p.returnName()+" ";
+					elevatorppl = elevatorppl+p.returnName()+" "+p.whatFloor+" ";
 				}
 				System.out.println(elevatorppl);
 				System.out.println("");
+				elevatorppl = "People in this Elevator are ";
 			}
 		}
 	}

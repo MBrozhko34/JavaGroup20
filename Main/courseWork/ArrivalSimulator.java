@@ -55,13 +55,12 @@ public class ArrivalSimulator {
 	}
 	
 	public boolean getPProbability() {
+		Double nextdouble;
 		P_probability=pList.get(random.nextInt(pList.size()));
-		Double nextdouble = 0.00000001;//random.nextDouble();
+		nextdouble = random.nextDouble();
 		if (P_probability>nextdouble) {
-			System.out.println("P value: "+P_probability+"Random Value "+nextdouble);
 			return true;
 		}
-		System.out.println("P value: "+P_probability+"Random Value "+nextdouble);
 		return false;
 	}
 	

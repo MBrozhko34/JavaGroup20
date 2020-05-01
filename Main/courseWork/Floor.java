@@ -52,11 +52,22 @@ public class Floor {
 	}
 	
 	public void tick() {
-		if (peopleOnFloor.isEmpty()) {
-			System.out.println("Floor is empty");
-		} else {
-			for (Person p: peopleOnFloor) {
-				p.tick();
+//		if (peopleOnFloor.isEmpty()) {
+//			System.out.println("Floor is empty");
+//		} else {
+//			MoveChecker();
+//		}
+		MoveChecker();
+	}
+	
+	public void MoveChecker() {
+		for (int i=0; i<peopleOnFloor.size(); i++) {
+			Person buffer = peopleOnFloor.get(i);
+			buffer.tick();
+			if (buffer.wantToMove && !(buffer.whatFloor == floornumber)) {
+				peopleOnFloor.remove(i);
+				i = i-1;
+				addToQ(buffer);
 			}
 		}
 	}
