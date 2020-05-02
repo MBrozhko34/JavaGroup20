@@ -5,14 +5,17 @@ public class TextBasedUI {
 	Building b;
 	String peoplewaiting = "People waiting for Lift: ";
 	String elevatorppl = "People in this Elevator are ";
+	Simulation s;
 
-	public TextBasedUI(Building b) {
+	public TextBasedUI(Building b,Simulation S) {
 		this.b = b;
+		this.s = S;
 
 	}
 
 	public void showUI() {
 		System.out.println("---------------------------");
+		System.out.println("Current Tick "+s.tick);
 		System.out.println("Floors:");
 		System.out.println("");
 		for (Floor f: b.getFloors()) {

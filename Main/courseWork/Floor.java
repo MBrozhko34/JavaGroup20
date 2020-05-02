@@ -13,13 +13,15 @@ public class Floor {
 	public int floornumber;
 	public boolean goDown;
 	public Elevator e;
+	Simulation s;
 	
-	public Floor(int floorno) {
+	public Floor(int floorno,Simulation S) {
 		peopleOnFloor = new ArrayList<Person>();
 		waitingQueue = new ArrayList<Person>();
 		goUp = false;
 		goDown = false;
 		floornumber = floorno;
+		s = S;
 
 	}
 

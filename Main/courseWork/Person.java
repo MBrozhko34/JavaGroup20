@@ -13,6 +13,7 @@ public class Person {
 	ArrivalSimulator s;
 	public boolean wantToMove;
 	Random random;
+	protected int arriveTick;
 	
 	public Person (String name, int space,Building b, ArrivalSimulator s,Random R) {
 		this.name = name;
@@ -22,6 +23,7 @@ public class Person {
 		this.s = s;
 		wantToMove = false;
 		random = R;
+		arriveTick = 0;
 	}
 	
 	public String returnName() {
@@ -75,6 +77,14 @@ public class Person {
 
 		public void setCurrentFloor(int currentFloor) {
 			this.currentFloor = currentFloor;
+		}
+
+		public int getArriveTick() {
+			return arriveTick;
+		}
+
+		public void setArriveTick(int arriveTick) {
+			this.arriveTick = arriveTick;
 		}
 
 		public int getWhatFloor() {

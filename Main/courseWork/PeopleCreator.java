@@ -18,7 +18,7 @@ public class PeopleCreator {
 		random = R;
 		totaldevs = values.getMugdevs() + values.getGoggledevs();
 		createEmployees();
-		//createDevs();
+		createDevs();
 	}
 	
 	public void createEmployees() {
@@ -28,8 +28,24 @@ public class PeopleCreator {
 	}
 	
 	public void createDevs() {
-		for (int i=0; i < totaldevs;i++) { //later on split this into the two types of devs
-			B.getFloors().get(0).addToQ(new Developers("D"+i,1,B,sim,random));
+		for (int i=0; i < values.getMugdevs();i++) { //later on split this into the two types of devs
+			B.getFloors().get(0).addToQ(new Developers("MD"+i,1,B,sim,random));
+		}
+		
+		for (int i=0; i < values.getGoggledevs();i++) { //later on split this into the two types of devs
+			B.getFloors().get(0).addToQ(new Developers("GD"+i,1,B,sim,random));
+		}
+	}
+	
+	public void tick() {
+		Double chance = random.nextDouble();
+		if (chance < 0.005) {
+			B.getFloors().get(0).addToQ(new MaintenanceCrews("MaintenceCrew",values.getElevatorcap(),B,sim,random));
+			// need to create the logic so the crew stays on that floor for a set time
+		}
+		
+		if (chance < sim.getQProbability()) {
+			B.getFloors().get(0).addToQ(new Clients("Client",1,B,sim,random));
 		}
 	}
 	

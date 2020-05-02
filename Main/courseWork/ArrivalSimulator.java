@@ -66,8 +66,7 @@ public class ArrivalSimulator {
 	
 	public double getQProbability() {
 		Q_probability=qList.get(random.nextInt(qList.size()));
-		System.out.println(Q_probability);
-		return P_probability;
+		return Q_probability;
 	}
 	
 	//test change to test Michaels PC

@@ -18,6 +18,7 @@ public class Elevator {
 		private boolean isDoorOpen;
 		public int direction;
 		private int id;
+		Simulation s;
 
 		public int getCurrentFloor() {
 			return currentFloor;
@@ -30,7 +31,7 @@ public class Elevator {
 		public int getid() {
 			return id;
 		}
-		public Elevator(int c, int id,Building b) {
+		public Elevator(int c, int id,Building b,Simulation S) {
 			currentFloor = 0;
 			idle = 0;
 			isOpen = true;
@@ -41,6 +42,7 @@ public class Elevator {
 			this.id = id;
 			building = b;
 			direction = 1;
+			s = S;
 
 		}
 
@@ -68,6 +70,7 @@ public class Elevator {
 					getPeopleInElevator().remove(i);
 					i -=1;
 					buffer.setCurrentFloor(currentFloor);
+					buffer.setArriveTick(s.tick);
 					f.arrive(buffer);
 					spaceLeft = spaceLeft + buffer.getSpace();
 					howManyPeopleIn = howManyPeopleIn - 1;

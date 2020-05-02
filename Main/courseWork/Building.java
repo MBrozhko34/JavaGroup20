@@ -9,12 +9,14 @@ public class Building {
 	private int howManyFloors;
 	private int noElevators;
 	private int elevatorcap;
+	private Simulation s;
 	
-	public Building(MenuController m) {
+	public Building(MenuController m,Simulation S) {
 		floors = new ArrayList<Floor>();
 		howManyFloors = m.getFloors();
 		noElevators = m.getElevators();
 		elevatorcap = m.getElevatorcap();
+		s = S;
 		create();
 		
 	}
@@ -22,7 +24,7 @@ public class Building {
 	public void addFloors() {
 		//create floors then pass into this function
 		for (int i=0; i<howManyFloors; i++) {
-			getFloors().add(new Floor(i));
+			getFloors().add(new Floor(i,s));
 		}
 		System.out.println("We have created "+getFloors().size()+" floors");
 	}
@@ -31,7 +33,7 @@ public class Building {
 	public void registerElevator() {
 		elevators = new ArrayList<Elevator>();
 		for (int i=0; i < noElevators; i++) {
-			elevators.add(new Elevator(elevatorcap,i,this));
+			elevators.add(new Elevator(elevatorcap,i,this,s));
 		}
 		System.out.println("We have created "+elevators.size()+" Elevators");
 	}
@@ -61,6 +63,10 @@ public class Building {
 	
 	public int getHowManyFloors() {
 		return howManyFloors;
+	}
+	
+	public Simulation getSimulation() {
+		return s;
 	}
 
 }
