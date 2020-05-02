@@ -12,14 +12,16 @@ public class Person {
 	public String test;
 	ArrivalSimulator s;
 	public boolean wantToMove;
+	Random random;
 	
-	public Person (String name, int space,Building b, ArrivalSimulator s) {
+	public Person (String name, int space,Building b, ArrivalSimulator s,Random R) {
 		this.name = name;
 		currentFloor = 0;
 		spaceRequired = space;
 		building = b;
 		this.s = s;
 		wantToMove = false;
+		random = R;
 	}
 	
 	public String returnName() {
@@ -83,7 +85,14 @@ public class Person {
 			this.whatFloor = whatFloor;
 		}	
 		
+		public void choose() {
+			System.out.println("choosing a floor");
+		}
+		
 		public void tick() {
-			System.out.println("Hello");
+			if (s.getPProbability()) {
+				wantToMove = true;
+				choose();
+			}
 		}
 }
