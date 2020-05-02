@@ -1,0 +1,203 @@
+@startuml
+
+title Classes Java Group Project
+
+class Launcher {
+    -time: int
+    +setenviroment()int
+    +generatePeople(): int,int,int,int
+}
+
+class Elevator {
+    -building: Building
+    -Capacity: int
+    -spaceLimit: int
+    -peopleIn: ArrayList Person
+    +currentFloor: int
+    -floorsCalled: ArrayList int
+    +goingUp: boolean
+    +goingDown: boolean
+    -spaceLimit: int
+    -isOpen: boolean
+    -id: int
+    
+    +getCurrentFloor(): int
+    +getSpaceLeft(): int
+    +getid():int 
+    +addPeople(f: Floor)
+    +removePeople(f: Floor)
+    +howManyPeopleIn(): int
+    +getPeopleInElevator(): ArrayList<Person>
+    +moveLiftUp()
+    +moveLiftDown()
+    +move()
+    +tick()
+    }
+    
+
+class Person {
+    +name: String
+    +currentFloor: int
+    +direction: String
+    whatFloor: int
+    
+    +returnName(): String
+    +buttonPress()
+    +returnFloor(): int
+    +setFloor(E: Elevator)
+    +getSpace(): int
+    +generateTime(a: int, b: int): int
+    +Destination(end: int)
+    +getCurrentFloor(): int
+    +setCurrentFloor(currentFloor: int)
+    +getWhatFloor(): int
+    +setWhatFloor(whatFloor: int)
+    }
+    
+
+class Client extends Person {
+    +name: String
+    +minFloor: int
+    +maxFloor: int
+    +range: int
+    +s: ArrivalSimulator
+    +timer: int
+    
+    +choose()
+    +tick(f: Floor, p: Person)
+    +getSimulationTime(): int
+    +arriveOnGroundFloor(f: Floor, p: Person)
+    }
+
+class Developer extends Person {
+    +minFloor: int
+    +maxFloor: int
+    +range: int
+    +s: ArrivalSimulator
+    +timer: int
+    
+    +choose()
+    +tick(f: Floor, p: Person)
+    +getSimulationTime(): int
+    }
+
+class Employees extends Person {
+    +name: String
+    +spaceRequired: int
+    +minFloor: int
+    +maxFloor: int
+    +range: int
+    +s: ArrivalSimulator
+    +timer: int
+    
+    +choose()
+    +tick(f: Floor, p: Person)
+    +getSimulationTime(): int
+    }
+
+class MaintenceCrews extends Person {
+    +name: String
+    +spaceRequired: int
+    +currentFloor: int
+    +s: ArrivalSimulator
+    +f: Floor
+    +whatFloor: int
+    +timer: int
+    
+    +tick(f: Floor, p: Person)
+    +getSimulationTime(): int
+    +arriveOnGroundFloor(f: Floor, p: Person)
+    }
+
+
+
+
+class Floor {
+    +peopleOnFloor: ArrayList Person
+    +waitingQueue: ArrayList Person
+    +goUp: boolean
+    +floornumber: int
+    +goDown: boolean
+    +e: Elevator
+    
+    +addToQueue(p: Person)
+    +removeFromQueue()
+    +arrive(p: Person)
+    +leave(p: Person)
+    +sizeQueue(): int
+    +getFloorNumber(): int
+    +setFloorNumber(floornumber: int)
+    }
+
+class Building {
+    -floors: ArrayList Floor
+    +elevators: ArrayList Elevator
+    -howManyFloors: int
+    -noElevators: int
+    -elevatorcap: int
+    
+    +addFloors()
+    +registerElevator()
+    +create()
+    +returnFloors: int
+    +getFloors: ArrayList Floor
+    +moveLiftUp()
+    +tick()
+    +getHowManyFloors(): int
+    
+    }
+
+class ArrivalSimulator {
+    -P_probability: double
+    -Q_probability: double
+    -simulation: Simulation
+    -random: Random
+    -pList: List: Double
+    -qList: List: Double
+    
+    +generatePProbability()
+    +generateQProbability()
+    +getPProbability(): Double
+    +getQProbability(): Double
+    } 
+
+class Simulation {
+    +MenuVars: MenuController
+    +Ui: TextBased
+    
+    +run()
+    }
+    
+class PeopleCreator {
+    +values: MenuController
+    +B: Building
+    
+    +createDevs()
+    }
+    
+class TextBasedUI {
+    +b: Building
+    +peopleWaiting: String
+    +elevatorppl: String
+    
+    +showUI()
+}
+
+class MenuController {
+    +initialize()
+    +getFloors(): int
+    +getElevatorcap(): int
+    +getElevators(): int
+    +getPslider(): Slider
+    +getQslider(): Slider
+    +getSeed(): int
+    +getTicks(): int
+    +getEmployees(): int
+    +getMugDevs(): int
+    +getGoggleDevs(): int
+    +runClicked()
+    }
+    
+    
+    
+@enduml
