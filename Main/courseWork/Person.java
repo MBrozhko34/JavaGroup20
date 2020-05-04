@@ -15,6 +15,8 @@ public class Person {
 	Random random;
 	protected int arriveTick;
 	protected boolean done = false;
+	public int startWaiting;
+	public int getInLift;
 	
 	public Person (String name, int space,Building b, ArrivalSimulator s,Random R) {
 		this.name = name;

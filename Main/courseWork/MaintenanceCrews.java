@@ -15,7 +15,7 @@ public class MaintenanceCrews extends Person{
 		super(name,spaceRequired, b,S,R);
 		this.spaceRequired=spaceRequired;
 		whatFloor = building.getHowManyFloors()-1;
-		howLong = 1;//random.nextInt(maxtime - mintime +1)+mintime;
+		howLong = random.nextInt(maxtime - mintime +1)+mintime;
 	}
 	
 	

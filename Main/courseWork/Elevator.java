@@ -53,6 +53,7 @@ public class Elevator {
 					f.removeFromQ();
 					i -=1;
 					peopleInElevator.add(buffer);
+					buffer.getInLift=building.getSimulation().tick;
 					spaceLeft = spaceLeft - buffer.getSpace();
 					howManyPeopleIn = peopleInElevator.size();
 				} else {

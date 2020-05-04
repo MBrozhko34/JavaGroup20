@@ -13,20 +13,25 @@ public class Floor {
 	public int floornumber;
 	public boolean goDown;
 	public Elevator e;
+	Building b;
 	Simulation s;
 	
-	public Floor(int floorno,Simulation S) {
+	public Floor(int floorno,Simulation S, Building b) {
 		peopleOnFloor = new ArrayList<Person>();
 		waitingQueue = new ArrayList<Person>();
 		goUp = false;
 		goDown = false;
 		floornumber = floorno;
 		s = S;
-
+		this.b=b;
 	}
 
 	public void addToQ(Person P){
 		waitingQueue.add(P);
+		P.startWaiting=b.getSimulation().tick;
+		if(floornumber==0) {
+			b.allPeople.add(P);
+		}
 	}
 
 	public void removeFromQ(){
@@ -70,7 +75,7 @@ public class Floor {
 				peopleOnFloor.remove(i);
 				i = i-1;
 			}
-			if (buffer.wantToMove && !(buffer.whatFloor == floornumber)) {
+			else if (buffer.wantToMove && !(buffer.whatFloor == floornumber)) {
 				peopleOnFloor.remove(i);
 				i = i-1;
 				addToQ(buffer);

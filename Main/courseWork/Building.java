@@ -10,6 +10,7 @@ public class Building {
 	private int noElevators;
 	private int elevatorcap;
 	private Simulation s;
+	public ArrayList<Person> allPeople = new ArrayList<Person>();
 	
 	public Building(MenuController m,Simulation S) {
 		floors = new ArrayList<Floor>();
@@ -24,7 +25,7 @@ public class Building {
 	public void addFloors() {
 		//create floors then pass into this function
 		for (int i=0; i<howManyFloors; i++) {
-			getFloors().add(new Floor(i,s));
+			getFloors().add(new Floor(i,s,this));
 		}
 		System.out.println("We have created "+getFloors().size()+" floors");
 	}

@@ -6,6 +6,7 @@ public class TextBasedUI {
 	String peoplewaiting = "People waiting for Lift: ";
 	String elevatorppl = "People in this Elevator are ";
 	Simulation s;
+	int totalAverageTime;
 
 	public TextBasedUI(Building b,Simulation S) {
 		this.b = b;
@@ -60,6 +61,16 @@ public class TextBasedUI {
 				elevatorppl = "People in this Elevator are ";
 			}
 		}
+		
+//		for(Person p: b.allPeople) {
+//			//int waitingTime = 0;
+//			//waitingTime=p.getInLift-p.startWaiting;
+//			int allWaiting=0;
+//			totalAverageTime=0;
+//			allWaiting=allWaiting+(p.getInLift-p.startWaiting);
+//			totalAverageTime=allWaiting/b.allPeople.size();
+//			//System.out.println("The average waiting time is: "+totalAverageTime);
+//		}
 	}
 }
 

@@ -1,5 +1,6 @@
 package courseWork;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class PeopleCreator {
@@ -49,8 +50,6 @@ public class PeopleCreator {
 		}
 	}
 	
-
 	
-
 
 }
