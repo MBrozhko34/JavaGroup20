@@ -14,6 +14,7 @@ public class Person {
 	public boolean wantToMove;
 	Random random;
 	protected int arriveTick;
+	protected boolean done = false;
 	
 	public Person (String name, int space,Building b, ArrivalSimulator s,Random R) {
 		this.name = name;

@@ -66,6 +66,10 @@ public class Floor {
 		for (int i=0; i<peopleOnFloor.size(); i++) {
 			Person buffer = peopleOnFloor.get(i);
 			buffer.tick();
+			if (buffer.wantToMove && buffer.done ) {
+				peopleOnFloor.remove(i);
+				i = i-1;
+			}
 			if (buffer.wantToMove && !(buffer.whatFloor == floornumber)) {
 				peopleOnFloor.remove(i);
 				i = i-1;
