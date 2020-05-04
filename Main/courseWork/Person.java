@@ -8,11 +8,22 @@ public class Person {
 	int spaceRequired;
 	String direction;
 	int whatFloor; // to store what floor the guy wants to go to
+	Building building;
+	public String test;
+	ArrivalSimulator s;
+	public boolean wantToMove;
+	Random random;
+	protected int arriveTick;
 	
-	public Person (String name, int space,Building b) {
+	public Person (String name, int space,Building b, ArrivalSimulator s,Random R) {
 		this.name = name;
 		currentFloor = 0;
 		spaceRequired = space;
+		building = b;
+		this.s = s;
+		wantToMove = false;
+		random = R;
+		arriveTick = 0;
 	}
 	
 	public String returnName() {
@@ -52,6 +63,7 @@ public class Person {
 		int maxTickTime = b*6;
 		int value = rd.nextInt((maxTickTime-minTickTime)+1) + minTickTime;
 		return value;
+		
 	}
 	
 	//Function needed be added to Person class to allow for change in floor after first floor:
@@ -67,6 +79,14 @@ public class Person {
 			this.currentFloor = currentFloor;
 		}
 
+		public int getArriveTick() {
+			return arriveTick;
+		}
+
+		public void setArriveTick(int arriveTick) {
+			this.arriveTick = arriveTick;
+		}
+
 		public int getWhatFloor() {
 			return whatFloor;
 		}
@@ -74,4 +94,15 @@ public class Person {
 		public void setWhatFloor(int whatFloor) {
 			this.whatFloor = whatFloor;
 		}	
+		
+		public void choose() {
+			System.out.println("choosing a floor");
+		}
+		
+		public void tick() {
+			if (s.getPProbability()) {
+				wantToMove = true;
+				choose();
+			}
+		}
 }

@@ -5,14 +5,17 @@ public class TextBasedUI {
 	Building b;
 	String peoplewaiting = "People waiting for Lift: ";
 	String elevatorppl = "People in this Elevator are ";
+	Simulation s;
 
-	public TextBasedUI(Building b) {
+	public TextBasedUI(Building b,Simulation S) {
 		this.b = b;
+		this.s = S;
 
 	}
 
 	public void showUI() {
 		System.out.println("---------------------------");
+		System.out.println("Current Tick "+s.tick);
 		System.out.println("Floors:");
 		System.out.println("");
 		for (Floor f: b.getFloors()) {
@@ -24,6 +27,7 @@ public class TextBasedUI {
 					peoplewaiting = peoplewaiting+p.returnName()+" "+p.whatFloor+" ";
 				}
 				System.out.println(peoplewaiting);
+				peoplewaiting = "People waiting for Lift: ";
 			}
 			if (f.peopleOnFloor.isEmpty()) {
 				System.out.println("There is nobody Currently at this floor");
@@ -35,6 +39,7 @@ public class TextBasedUI {
 				}
 				System.out.println(floorpeople);
 				System.out.println("");
+				floorpeople = "People on this floor are: ";
 			}
 		}
 		
@@ -48,10 +53,11 @@ public class TextBasedUI {
 				System.out.println("");
 			} else {
 				for (Person p: e.getPeopleInElevator()) {
-					elevatorppl = elevatorppl+p.returnName()+" ";
+					elevatorppl = elevatorppl+p.returnName()+" "+p.whatFloor+" ";
 				}
 				System.out.println(elevatorppl);
 				System.out.println("");
+				elevatorppl = "People in this Elevator are ";
 			}
 		}
 	}

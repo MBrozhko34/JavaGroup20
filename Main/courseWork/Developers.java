@@ -10,28 +10,19 @@ public class Developers extends Person {
 	ArrivalSimulator s;
 	int timer=0;
 	
-	public Developers(String name, int spaceRequired, Building b) {
-		super(name,spaceRequired, b);
+	public Developers(String name, int spaceRequired, Building b,ArrivalSimulator s,Random R) {
+		super(name,spaceRequired, b,s,R);
 		minFloor = (b.getHowManyFloors()-1)/2;
 		maxFloor = b.getHowManyFloors()-1;
 		range = (maxFloor - minFloor) +1;
 		choose();
 		
 	}
-	
+	@Override
 	public void choose() {
-		Random r = new Random();
-		whatFloor = r.nextInt(maxFloor - minFloor +1)+minFloor;
+		whatFloor = random.nextInt(maxFloor - minFloor +1)+minFloor;
 	}
 	
-	public void tick(Floor f, Person p) { //takes a destination floor and a person as a a parameter
-		timer=timer+10;  //increments timer by 10 seconds or 1 tick
-		f.setFloornumber(whatFloor);
-		Random rd = new Random();
-		if(s.getPProbability()>rd.nextDouble()) {
-			f.addToQ(p);
-		}
-	}
 	
 	public int getSimulationsTime() {  //returns the total time of the simulation
 		return timer;

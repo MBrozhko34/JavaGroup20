@@ -13,13 +13,15 @@ public class Floor {
 	public int floornumber;
 	public boolean goDown;
 	public Elevator e;
+	Simulation s;
 	
-	public Floor(int floorno) {
+	public Floor(int floorno,Simulation S) {
 		peopleOnFloor = new ArrayList<Person>();
 		waitingQueue = new ArrayList<Person>();
 		goUp = false;
 		goDown = false;
 		floornumber = floorno;
+		s = S;
 
 	}
 
@@ -49,6 +51,27 @@ public class Floor {
 
 	public void setFloornumber(int floornumber) {
 		this.floornumber = floornumber;
+	}
+	
+	public void tick() {
+//		if (peopleOnFloor.isEmpty()) {
+//			System.out.println("Floor is empty");
+//		} else {
+//			MoveChecker();
+//		}
+		MoveChecker();
+	}
+	
+	public void MoveChecker() {
+		for (int i=0; i<peopleOnFloor.size(); i++) {
+			Person buffer = peopleOnFloor.get(i);
+			buffer.tick();
+			if (buffer.wantToMove && !(buffer.whatFloor == floornumber)) {
+				peopleOnFloor.remove(i);
+				i = i-1;
+				addToQ(buffer);
+			}
+		}
 	}
 	
 	//individual people know where they are going-> subclasses of person class
