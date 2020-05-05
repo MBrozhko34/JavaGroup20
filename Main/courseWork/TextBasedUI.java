@@ -7,6 +7,8 @@ public class TextBasedUI {
 	String elevatorppl = "People in this Elevator are ";
 	Simulation s;
 	int totalAverageTime;
+	int allWaiting=0;
+	int complaints=0;
 
 	public TextBasedUI(Building b,Simulation S) {
 		this.b = b;
@@ -62,16 +64,25 @@ public class TextBasedUI {
 			}
 		}
 		
-//		for(Person p: b.allPeople) {
-//			//int waitingTime = 0;
-//			//waitingTime=p.getInLift-p.startWaiting;
-//			int allWaiting=0;
-//			totalAverageTime=0;
-//			allWaiting=allWaiting+(p.getInLift-p.startWaiting);
-//			totalAverageTime=allWaiting/b.allPeople.size();
-//			//System.out.println("The average waiting time is: "+totalAverageTime);
-//		}
-	}
+		for(Person p1: b.allPeople) {
+			//int waitingTime = 0;
+			//waitingTime=p.getInLift-p.startWaiting;
+			if(p1.getInLift!=0) {
+				allWaiting=allWaiting+(p1.getInLift-p1.startWaiting);
+				totalAverageTime=allWaiting/b.allPeople.size();
+			}
+			if(p1.name=="Client") {
+				if((p1.getInLift-p1.startWaiting)>1) {
+					complaints++;
+				}
+			}			
+		}
+		System.out.println("The average waiting time is: "+totalAverageTime);
+		System.out.println("The total number of complaints: "+complaints);	
+		totalAverageTime=0;
+		allWaiting=0;
+		complaints=0;
+		}
 }
 
 

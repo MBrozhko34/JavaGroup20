@@ -11,6 +11,9 @@ public class Simulation {
 	public int tick;
 	int allWaiting=0;
 	int totalAverageTime;
+	Clients c1;
+	int complaints=0;
+	Random randomness;
 
 
 	public Simulation(MenuController m) {
@@ -22,7 +25,7 @@ public class Simulation {
 
 	public void run() {
 		Building building1 = new Building(MenuVars,this);
-		Random randomness = new Random(20);
+		randomness = new Random();
 		randomness.setSeed(MenuVars.getSeed());	
 		ArrivalSimulator s = new ArrivalSimulator(randomness);
 		PeopleCreator p = new PeopleCreator(MenuVars, building1,s,randomness);
@@ -38,9 +41,25 @@ public class Simulation {
 		for(Person p1: building1.allPeople) {
 			//int waitingTime = 0;
 			//waitingTime=p.getInLift-p.startWaiting;
-			allWaiting=allWaiting+(p1.getInLift-p1.startWaiting);
-			totalAverageTime=allWaiting/building1.allPeople.size();
+			if(p1.getInLift!=0) {
+				allWaiting=allWaiting+(p1.getInLift-p1.startWaiting);
+				totalAverageTime=allWaiting/building1.allPeople.size();
+			}
+			if(p1.name=="Client") {
+				if((p1.getInLift-p1.startWaiting)>1) {
+					complaints++;
+				}
+			}			
 		}
 		System.out.println("The average waiting time is: "+totalAverageTime);
+		System.out.println("The total number of complaints: "+complaints);
+		
+		//if(complaints>5) {
+		//	System.out.println("We have had more than 5 complaints, this is bad");
+		//}
+	}
+	
+	public int getAverageWaitingTime() {
+		return totalAverageTime;
 	}
 }

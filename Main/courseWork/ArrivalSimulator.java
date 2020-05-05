@@ -22,22 +22,6 @@ public class ArrivalSimulator {
 		generateQProbability();
 	}
 	
-//	public void setArrivalProbability(float a) {
-//		this.ArrivalProbability=a;
-//	}
-//	
-//	public float getArrivalProbability() {
-//		return ArrivalProbability;
-//	}
-//	
-//	public void setLeaveProbability(float l) {
-//		this.LeaveProbability=l;
-//	}
-//	
-//	public float getLeaveProbability() {
-//		return LeaveProbability;
-//	}
-	
 	public void generatePProbability() {
 		pList.add(0.001);
 		pList.add(0.002);
@@ -56,7 +40,8 @@ public class ArrivalSimulator {
 	
 	public boolean getPProbability() {
 		Double nextdouble;
-		P_probability=pList.get(random.nextInt(pList.size()));
+		//P_probability=pList.get(random.nextInt(pList.size()));
+		P_probability=pList.get(4);
 		nextdouble = random.nextDouble();
 		if (P_probability>nextdouble) {
 			return true;
@@ -65,9 +50,9 @@ public class ArrivalSimulator {
 	}
 	
 	public double getQProbability() {
-		Q_probability=qList.get(random.nextInt(qList.size()));
+		//Q_probability=qList.get(random.nextInt(qList.size()));
+		Q_probability=qList.get(4);
 		return Q_probability;
 	}
 	
-	//test change to test Michaels PC
 }

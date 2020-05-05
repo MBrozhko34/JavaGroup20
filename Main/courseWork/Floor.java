@@ -29,6 +29,8 @@ public class Floor {
 	public void addToQ(Person P){
 		waitingQueue.add(P);
 		P.startWaiting=b.getSimulation().tick;
+		P.getInLift=0;
+		System.out.println("MoveCheck");
 		if(floornumber==0) {
 			b.allPeople.add(P);
 		}
