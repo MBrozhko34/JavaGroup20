@@ -1,7 +1,6 @@
 package courseWork;
 
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Developers extends Person {
 	int minFloor;
@@ -24,7 +23,5 @@ public class Developers extends Person {
 	}
 	
 	
-	public int getSimulationsTime() {  //returns the total time of the simulation
-		return timer;
-	}
+	
 }

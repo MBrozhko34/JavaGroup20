@@ -122,7 +122,11 @@ public class MenuController {
 	public void runClicked() {
 		Simulation s = new Simulation(this);
 		s.run();
-		
+	}
+	
+	@FXML
+	public void runStudy() {
+		Study RunStudy = new Study();
 	}
 
 }
