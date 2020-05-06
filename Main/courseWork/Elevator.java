@@ -1,6 +1,7 @@
 package courseWork;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Elevator {
 
@@ -39,6 +40,7 @@ public class Elevator {
 			howManyPeopleIn = 0;
 			spaceLeft = spaceLimit;
 			peopleInElevator = new ArrayList<Person>();
+			floorsCalled = new ArrayList<Integer>();
 			this.id = id;
 			building = b;
 			direction = 1;
@@ -49,10 +51,12 @@ public class Elevator {
 		public void addPeople(Floor f) {   //floor needs to have a method to return 
 			for (int i=0; i < f.sizeQueue();i++) { //what floor number it is
 				Person buffer = f.waitingQueue.get(i);
-				if (buffer.getSpace() <= spaceLeft) {
-					f.removeFromQ();
-					i -=1;
+				if (buffer.getSpace() <= spaceLeft) {            //have an arraylist of floors to go to
+					f.removeFromQ();                               //go through the floors and add where people want to go
+					//sort that list 
+					i -=1;                                       //move according to that list
 					peopleInElevator.add(buffer);
+					floorsCalled.add(buffer.whatFloor);
 					buffer.getInLift=building.getSimulation().tick;
 					spaceLeft = spaceLeft - buffer.getSpace();
 					howManyPeopleIn = peopleInElevator.size();
@@ -79,6 +83,10 @@ public class Elevator {
 			}
 		}
 
+		public ArrayList<Integer> getFloorsCalled() {
+			return floorsCalled;
+		}
+
 		public int howManyPeopleIn() {
 			return getPeopleInElevator().size();
 		}
@@ -97,17 +105,34 @@ public class Elevator {
 		}
 		
 		public void move() {
-			if (currentFloor == (building.getHowManyFloors())-1) {
-				direction = -1;
-				moveliftdown();
-			} else if (currentFloor == 0) {
-				direction = 1;
-				moveliftup();
-			} else if (currentFloor < building.getHowManyFloors() && direction == -1) {
-				moveliftdown();
-			} else if (currentFloor < building.getHowManyFloors() && direction == 1) {
-				moveliftup();
+			if (floorsCalled.size() == 0) {
+				if (currentFloor != 0) {
+					moveliftdown();
+				}
+			} else {
+				for (int i=0; i<floorsCalled.size();i++) {
+					int temp = floorsCalled.get(i);
+					if (temp > currentFloor) {
+						if (currentFloor == floorsCalled.get(i)) {
+							floorsCalled.remove(0); // this does not remove the floor 
+							                // from the list of floors to go to
+						}
+						moveliftup();
+					}
+				}
 			}
+		
+//			if (currentFloor == (building.getHowManyFloors())-1) {
+//				direction = -1;
+//				moveliftdown();
+//			} else if (currentFloor == 0) {
+//				direction = 1;
+//				moveliftup();
+//			} else if (currentFloor < building.getHowManyFloors() && direction == -1) {
+//				moveliftdown();
+//			} else if (currentFloor < building.getHowManyFloors() && direction == 1) {
+//				moveliftup();
+//			}
 		}
 
 //		public Floor Direction() {
@@ -120,6 +145,7 @@ public class Elevator {
 		public void tick() {
 			removePeople(building.getFloors().get(currentFloor));
 			addPeople(building.getFloors().get(currentFloor));
+			Collections.sort(floorsCalled);
 			move();
 			//people that need to leave will get out
 			//people on the floor waiting will get on 
