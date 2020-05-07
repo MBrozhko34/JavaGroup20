@@ -38,25 +38,6 @@ public class Simulation {
 			Ui.showUI();
 			tick++;
 		}
-		for(Person p1: building1.allPeople) {
-			//int waitingTime = 0;
-			//waitingTime=p.getInLift-p.startWaiting;
-			if(p1.getInLift!=0) {
-				allWaiting=allWaiting+(p1.getInLift-p1.startWaiting);
-				totalAverageTime=allWaiting/building1.allPeople.size();
-			}
-			if(p1.name=="Client") {
-				if((p1.getInLift-p1.startWaiting)>1) {
-					complaints++;
-				}
-			}			
-		}
-		System.out.println("The average waiting time is: "+totalAverageTime);
-		System.out.println("The total number of complaints: "+complaints);
-		
-		//if(complaints>5) {
-		//	System.out.println("We have had more than 5 complaints, this is bad");
-		//}
 	}
 	
 	public int getAverageWaitingTime() {

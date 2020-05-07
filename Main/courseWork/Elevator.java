@@ -56,7 +56,9 @@ public class Elevator {
 					//sort that list 
 					i -=1;                                       //move according to that list
 					peopleInElevator.add(buffer);
-					floorsCalled.add(buffer.whatFloor);
+					if (!floorsCalled.contains(buffer.whatFloor)) {
+						floorsCalled.add(buffer.whatFloor);
+					}
 					buffer.getInLift=building.getSimulation().tick;
 					spaceLeft = spaceLeft - buffer.getSpace();
 					howManyPeopleIn = peopleInElevator.size();
