@@ -40,8 +40,8 @@ public class ArrivalSimulator {
 	
 	public boolean getPProbability() {
 		Double nextdouble;
-		//P_probability=pList.get(random.nextInt(pList.size()));
-		P_probability=pList.get(4);
+		P_probability=pList.get(random.nextInt(pList.size()));
+		//P_probability=pList.get(4);
 		nextdouble = random.nextDouble();
 		if (P_probability>nextdouble) {
 			return true;
@@ -50,9 +50,24 @@ public class ArrivalSimulator {
 	}
 	
 	public double getQProbability() {
-		//Q_probability=qList.get(random.nextInt(qList.size()));
-		Q_probability=qList.get(4);
+		Q_probability=qList.get(random.nextInt(qList.size()));
+		//Q_probability=qList.get(4);
 		return Q_probability;
 	}
 	
+	public void createCombinations() {
+		int i = 0;
+		while(i<5) {
+			int j = 0;
+			while(j<5) {
+				System.out.println(pList.get(i));
+				System.out.println(qList.get(j));
+				j++;
+				
+			}
+		i++;
+			
+		}
+		
+	}
 }
