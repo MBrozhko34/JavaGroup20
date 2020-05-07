@@ -58,7 +58,7 @@ public class Elevator {
 					howManyPeopleIn = peopleInElevator.size();
 				} else {
 					//leave the person in the floor queue is there isnt space
-					System.out.println("There is no more space");
+					//System.out.println("There is no more space");
 				}
 			}
 

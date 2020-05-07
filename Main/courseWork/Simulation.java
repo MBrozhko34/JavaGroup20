@@ -30,7 +30,7 @@ public class Simulation {
 		Building building1 = new Building(MenuVars,this);
 		randomness = new Random();
 		randomness.setSeed(MenuVars.getSeed());	
-		ArrivalSimulator s = new ArrivalSimulator(randomness);
+		ArrivalSimulator s = new ArrivalSimulator(randomness,0,0);
 		PeopleCreator p = new PeopleCreator(MenuVars, building1,s,randomness);
 		Ui = new TextBasedUI(building1,this);
 		Ui.showUI();
@@ -63,18 +63,18 @@ public class Simulation {
 	}
 	
 	
-	public void runStudy() {
+	public void runStudy(int p, int q) {
 		Building building1 = new Building(MenuVars,this);
 		randomness = new Random();
 		randomness.setSeed(MenuVars.getSeed());
-		ArrivalSimulator s = new ArrivalSimulator(randomness);
-		PeopleCreator p = new PeopleCreator(MenuVars, building1,s,randomness);
+		ArrivalSimulator s = new ArrivalSimulator(randomness,p,q);
+		PeopleCreator pc = new PeopleCreator(MenuVars, building1,s,randomness);
 		//Ui = new TextBasedUI(building1,this);
 		//Ui.showUI();
 		
 		for (int i=0; i< MenuVars.getTicks();i++) {
 			building1.tick();
-			p.tick();
+			pc.tick();
 			//Ui.showUI();
 			tick++;
 		}

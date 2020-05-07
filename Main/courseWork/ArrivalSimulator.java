@@ -8,6 +8,9 @@ public class ArrivalSimulator {
 	private double P_probability;
 	private double Q_probability;
 	
+	private int pValue;
+	private int qValue;
+	
 	private List<Double> pList = new ArrayList<>();
 	private List<Double> qList = new ArrayList<>();
 	
@@ -16,8 +19,10 @@ public class ArrivalSimulator {
 	
 	private Random random;
 	
-	public ArrivalSimulator(Random random) {
+	public ArrivalSimulator(Random random, int p, int q) {
 		this.random = random;
+		pValue=p;
+		qValue=q;
 		generatePProbability();
 		generateQProbability();
 	}
@@ -40,8 +45,8 @@ public class ArrivalSimulator {
 	
 	public boolean getPProbability() {
 		Double nextdouble;
-		P_probability=pList.get(random.nextInt(pList.size()));
-		//P_probability=pList.get(4);
+		//P_probability=pList.get(random.nextInt(pList.size()));
+		P_probability=pList.get(pValue);
 		nextdouble = random.nextDouble();
 		if (P_probability>nextdouble) {
 			return true;
@@ -50,24 +55,28 @@ public class ArrivalSimulator {
 	}
 	
 	public double getQProbability() {
-		Q_probability=qList.get(random.nextInt(qList.size()));
-		//Q_probability=qList.get(4);
+		//Q_probability=qList.get(random.nextInt(qList.size()));
+		Q_probability=qList.get(qValue);
 		return Q_probability;
 	}
 	
 	public void createCombinations() {
 		int i = 0;
-		while(i<5) {
+		while(i<4) {
 			int j = 0;
-			while(j<5) {
+			while(j<4) {
 				System.out.println(pList.get(i));
 				System.out.println(qList.get(j));
 				j++;
-				
 			}
 		i++;
-			
 		}
 		
 	}
 }
+
+
+
+
+
+
