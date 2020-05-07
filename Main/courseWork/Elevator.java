@@ -105,22 +105,30 @@ public class Elevator {
 		}
 		
 		public void move() {
-			if (floorsCalled.size() == 0) {
-				if (currentFloor != 0) {
+			if (floorsCalled.size() == 0 && currentFloor != 0) {
 					moveliftdown();
-				}
+					direction = -1;
 			} else {
+				boolean goUp = false;
+				boolean goDown = false;
 				for (int i=0; i<floorsCalled.size();i++) {
 					int temp = floorsCalled.get(i);
-					if (temp > currentFloor) {
-						if (currentFloor == floorsCalled.get(i)) {
-							floorsCalled.remove(0); // this does not remove the floor 
-							                // from the list of floors to go to
-						}
-						moveliftup();
+					if (temp > currentFloor) { //&& direction ==1
+						goUp = true;
+					} else if (temp < currentFloor) {  //&& direction == -1
+						goDown = true;
+					} else {
+						floorsCalled.remove(i);
 					}
 				}
+				if (goUp==true) {
+					moveliftup();
+				}
+				if (goDown==true) {
+					moveliftdown();
+				}
 			}
+		}
 		
 //			if (currentFloor == (building.getHowManyFloors())-1) {
 //				direction = -1;
@@ -133,7 +141,7 @@ public class Elevator {
 //			} else if (currentFloor < building.getHowManyFloors() && direction == 1) {
 //				moveliftup();
 //			}
-		}
+		
 
 //		public Floor Direction() {
 //			RequestList r;
