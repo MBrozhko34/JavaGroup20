@@ -30,7 +30,7 @@ public class Floor {
 		waitingQueue.add(P);
 		P.startWaiting=b.getSimulation().tick;
 		P.getInLift=0;
-		System.out.println("MoveCheck");
+		//System.out.println("MoveCheck");
 		if(floornumber==0) {
 			b.allPeople.add(P);
 		}
@@ -81,6 +81,8 @@ public class Floor {
 				peopleOnFloor.remove(i);
 				i = i-1;
 				addToQ(buffer);
+				b.elevators.get(0).getFloorsCalled().add(buffer.currentFloor);
+				
 			}
 		}
 	}

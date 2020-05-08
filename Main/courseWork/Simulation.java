@@ -14,11 +14,14 @@ public class Simulation {
 	Clients c1;
 	int complaints=0;
 	Random randomness;
+	Study studyTest;
+	
 
 
 	public Simulation(MenuController m) {
 		MenuVars = m;
 		tick = 0;
+		
 
 	}
 	
@@ -27,7 +30,7 @@ public class Simulation {
 		Building building1 = new Building(MenuVars,this);
 		randomness = new Random();
 		randomness.setSeed(MenuVars.getSeed());	
-		ArrivalSimulator s = new ArrivalSimulator(randomness);
+		ArrivalSimulator s = new ArrivalSimulator(randomness,0,0);
 		PeopleCreator p = new PeopleCreator(MenuVars, building1,s,randomness);
 		Ui = new TextBasedUI(building1,this);
 		Ui.showUI();
@@ -36,6 +39,24 @@ public class Simulation {
 			building1.tick();
 			p.tick();
 			Ui.showUI();
+			tick++;
+		}
+	}
+	
+	
+	public void runStudy(int p, int q) {
+		Building building1 = new Building(MenuVars,this);
+		randomness = new Random();
+		randomness.setSeed(MenuVars.getSeed());
+		ArrivalSimulator s = new ArrivalSimulator(randomness,p,q);
+		PeopleCreator pc = new PeopleCreator(MenuVars, building1,s,randomness);
+		//Ui = new TextBasedUI(building1,this);
+		//Ui.showUI();
+		
+		for (int i=0; i< MenuVars.getTicks();i++) {
+			building1.tick();
+			pc.tick();
+			//Ui.showUI();
 			tick++;
 		}
 		for(Person p1: building1.allPeople) {
@@ -53,6 +74,8 @@ public class Simulation {
 		}
 		System.out.println("The average waiting time is: "+totalAverageTime);
 		System.out.println("The total number of complaints: "+complaints);
+		System.out.println("The probability of P is: "+s.getPProbability()); 
+		System.out.println("The probability of Q is: "+s.getQProbability());
 		
 		//if(complaints>5) {
 		//	System.out.println("We have had more than 5 complaints, this is bad");

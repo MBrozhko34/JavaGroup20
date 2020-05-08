@@ -126,7 +126,9 @@ public class MenuController {
 	
 	@FXML
 	public void runStudy() {
-		Study RunStudy = new Study();
+		Simulation theSimulation = new Simulation(this);
+		Study runStudy = new Study(theSimulation);
+		runStudy.testStudy();
 	}
 
 }
