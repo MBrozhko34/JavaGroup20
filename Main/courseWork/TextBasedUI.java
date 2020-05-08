@@ -6,7 +6,7 @@ public class TextBasedUI {
 	String peoplewaiting = "People waiting for Lift: ";
 	String elevatorppl = "People in this Elevator are ";
 	Simulation s;
-	int totalAverageTime;
+	float totalAverageTime;
 	int allWaiting=0;
 	int complaints=0;
 
@@ -72,8 +72,11 @@ public class TextBasedUI {
 				totalAverageTime=allWaiting/b.allPeople.size();
 			}
 			if(p1.name=="Client") {
-				if((p1.getInLift-p1.startWaiting)>1) {
+				if((p1.getInLift-p1.startWaiting)>60) {
 					complaints++;
+					if (p1.currentFloor == 0) {
+						b.getFloors().get(0).waitingQueue.remove(p1);
+					}
 				}
 			}			
 		}

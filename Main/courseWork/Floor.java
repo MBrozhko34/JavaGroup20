@@ -81,6 +81,8 @@ public class Floor {
 				peopleOnFloor.remove(i);
 				i = i-1;
 				addToQ(buffer);
+				b.elevators.get(0).getFloorsCalled().add(buffer.currentFloor);
+				
 			}
 		}
 	}
