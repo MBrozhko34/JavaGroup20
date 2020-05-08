@@ -6,6 +6,12 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 
+/**
+ * this class handles anything to do with the UI
+ * if a button is clicked or a value is changed etc
+ * @author Amrik
+ *
+ */
 public class MenuController {
 	
 	@FXML
@@ -48,7 +54,12 @@ public class MenuController {
 	public MenuController() {
 		
 	}
-	
+	/**
+	 * initialize sets up listeners for the sliders so that if the slider is moved 
+	 * then the text will change to show the value of the slider
+	 * This function also sets up all the boxes to allow for numbers to be entered 
+	 * This is done by creating a Spinner Value Factory for each Spinner
+	 */
 	@FXML
 	public void initialize() {
 		Pslider.valueProperty().addListener((prop, oldValue, newValue) -> {
@@ -118,12 +129,19 @@ public class MenuController {
 		return goggledevs.getValue();
 	}
 
+	/**
+	 * when the run button is clicked in the UI the function below specifies what should happen
+	 */
 	@FXML 
 	public void runClicked() {
 		Simulation s = new Simulation(this);
 		s.run();
 	}
-	
+	/**
+	 * when the runStudy button is clicked in the UI the function below specifies what should happen
+	 * A new Simulation class is created and the MenuController which holds all the values the user wants
+	 * is given to that class so the values from the UI can be used
+	 */
 	@FXML
 	public void runStudy() {
 		Simulation theSimulation = new Simulation(this);

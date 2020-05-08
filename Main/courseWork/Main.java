@@ -6,8 +6,21 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+* the entry point for the program as all java applications need a main class to start From
+* 
+*/
 public class Main extends Application {
 	
+	/**
+	 * This function is where the program will start and setup our UI where the user can enter values
+	 *
+	 * @param primaryStage This is passed in so we can create our UI and show the options for creating the 
+	 * simulation
+	 * 
+	 * @throws printStackTrace if there is an error in setting up the UI the program wont crash 
+	 * and will output the code executed leading up to the error
+	 */
 	@Override
 	public void start(Stage primaryStage) {
 		try {
