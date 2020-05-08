@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Queue;
 import java.util.Random;
 
+/**
+ * The class deals with keeping track of the queues on each floor, paying attention to those who 
+ * leave and join the queue for the elevator. It also checks if people want to move.
+ */
+
 public class Floor {
 	
 	//private Building building;
@@ -16,6 +21,14 @@ public class Floor {
 	Building b;
 	Simulation s;
 	
+	/**
+	 * This constructor keeps track of the people on the floor and those waiting in the queue. It also
+	 * sets the people's initial intentions to saying on the same floor, which will later change throughout
+	 * the simulation
+	 * @param floorno is the current floor number individual people are on.
+	 * @param S is an instance of the Simulation class.
+	 * @param b is an instance of the Building class.
+	 */
 	public Floor(int floorno,Simulation S, Building b) {
 		peopleOnFloor = new ArrayList<Person>();
 		waitingQueue = new ArrayList<Person>();
@@ -25,7 +38,12 @@ public class Floor {
 		s = S;
 		this.b=b;
 	}
-
+	
+	/**
+	 * This function adds people to the waiting queue on each floor.
+	 * @param P is an instance of the Person class and is used to add each individual to the queue on 
+	 * each floor.
+	 */
 	public void addToQ(Person P){
 		waitingQueue.add(P);
 		P.startWaiting=b.getSimulation().tick;
@@ -69,6 +87,11 @@ public class Floor {
 		MoveChecker();
 	}
 	
+	/**
+	 * This function is used to check whether an individual wants to move floors or stay on the current one. If they
+	 * want to stay on the current floor, their initial intentions of moving floors will remain the same as 
+	 * initialised. Otherwise it becomes 'true' and the individual changes floor.
+	 */
 	public void MoveChecker() {
 		for (int i=0; i<peopleOnFloor.size(); i++) {
 			Person buffer = peopleOnFloor.get(i);

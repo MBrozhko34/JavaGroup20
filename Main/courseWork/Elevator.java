@@ -3,6 +3,11 @@ package courseWork;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * This class deals with giving the elevator functionality. It also controls people moving
+ * in and out of the lift to help them move between floors.
+ */
+
 public class Elevator {
 
 		public int currentFloor;
@@ -32,6 +37,16 @@ public class Elevator {
 		public int getid() {
 			return id;
 		}
+		
+		/**
+		 * This constructor is used to the calculate how the space within the elevator
+		 * and also track the movement of the elevator
+		 * 
+		 * @param c is the value of the spaceLimit variable within the elevator. 
+		 * @param id is the value of the current elevator id. 
+		 * @param b is an instance of the Building class.
+		 * @param S is an instance of the Simulation class.
+		 */
 		public Elevator(int c, int id,Building b,Simulation S) {
 			currentFloor = 0;
 			idle = 0;
@@ -47,7 +62,13 @@ public class Elevator {
 			s = S;
 
 		}
-
+		
+		/**
+		 * The function adds people to the elevator queue, ready for them to be removed once the
+		 * elevator arrives and there is enough space within the elevator.
+		 * 
+		 * @param f is an instance of the Floor class.
+		 */
 		public void addPeople(Floor f) {   //floor needs to have a method to return 
 			for (int i=0; i < f.sizeQueue();i++) { //what floor number it is
 				Person buffer = f.waitingQueue.get(i);
@@ -70,6 +91,11 @@ public class Elevator {
 
 		}
 		
+		/**
+		 * The function removes people to the elevator queue, allowing them to enter 
+		 * the elevator.
+		 * @param f is an instance of the Floor class.
+		 */
 		public void removePeople(Floor f) {
 			for (int i=0; i<howManyPeopleIn; i++) {
 				Person buffer = getPeopleInElevator().get(i);
@@ -106,6 +132,10 @@ public class Elevator {
 			currentFloor = currentFloor - 1;
 		}
 		
+		/**
+		 * This function moves the elevator once called. If no one calls for the elevator
+		 * from any floor above the current one, it goes to a lower floor from which it is called.
+		 */
 		public void move() {
 			if (floorsCalled.size() == 0 && currentFloor != 0) {
 					moveliftdown();
@@ -152,6 +182,10 @@ public class Elevator {
 //				if (r.getFloor() == currentFloor)			}
 //		}
 		
+		/**
+		 * This function calculates the ticks used to remove and add people from the floors, into
+		 * the elevator.
+		 */
 		public void tick() {
 			removePeople(building.getFloors().get(currentFloor));
 			addPeople(building.getFloors().get(currentFloor));
