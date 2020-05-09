@@ -1,5 +1,11 @@
 package courseWork;
 
+/**
+ * Shows the current state of the simulation
+ * @author amrik
+ *
+ */
+
 public class TextBasedUI {
 
 	Building b;
@@ -16,6 +22,11 @@ public class TextBasedUI {
 
 	}
 
+	/**
+	 * one main function to show the state of the floors 
+	 * then shows the state of the elevators
+	 * then updates the average waiting time and complaint numbers
+	 */
 	public void showUI() {
 		System.out.println("---------------------------");
 		System.out.println("Current Tick "+s.tick);
