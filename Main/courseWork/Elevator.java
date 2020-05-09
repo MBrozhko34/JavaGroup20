@@ -19,9 +19,9 @@ public class Elevator {
 		public static int down = 1;
 		public static int idle = 0;
 		private int howManyPeopleIn;
-		private boolean isOpen;
+		//private boolean isOpen;
 		private int spaceLeft;
-		private boolean isDoorOpen;
+		//private boolean isDoorOpen;
 		public int direction;
 		private int id;
 		Simulation s;
@@ -50,7 +50,7 @@ public class Elevator {
 		public Elevator(int c, int id,Building b,Simulation S) {
 			currentFloor = 0;
 			idle = 0;
-			isOpen = true;
+			//isOpen = true;
 			spaceLimit = c;
 			howManyPeopleIn = 0;
 			spaceLeft = spaceLimit;
@@ -72,18 +72,72 @@ public class Elevator {
 		public void addPeople(Floor f) {   //floor needs to have a method to return 
 			for (int i=0; i < f.sizeQueue();i++) { //what floor number it is
 				Person buffer = f.waitingQueue.get(i);
-				if (buffer.getSpace() <= spaceLeft) {            //have an arraylist of floors to go to
-					f.removeFromQ();                               //go through the floors and add where people want to go
-					//sort that list 
-					i -=1;                                       //move according to that list
-					peopleInElevator.add(buffer);
-					if (!floorsCalled.contains(buffer.whatFloor)) {
-						floorsCalled.add(buffer.whatFloor);
+				if (buffer.getSpace() <= spaceLeft) {
+					boolean gdPresent = false;
+					boolean mdPresent = false;
+					String bufferName = buffer.name.substring(0, 2);
+					if (bufferName.equals("MD")) {
+						for (Person pson: peopleInElevator) {
+							String substring = pson.name.substring(0,2);
+							if (substring.equals("GD")) {
+								gdPresent = true;
+							}
+						}
+						if (gdPresent) {
+							f.addToback(buffer);
+						} else {
+							f.removeFromQ(); 
+							i -=1; 
+							peopleInElevator.add(buffer);
+							if (!floorsCalled.contains(buffer.whatFloor)) {
+								floorsCalled.add(buffer.whatFloor);
+							}
+							buffer.getInLift=building.getSimulation().tick;
+							spaceLeft = spaceLeft - buffer.getSpace();
+							howManyPeopleIn = peopleInElevator.size();
+						}
+					} else if (bufferName.equals("GD")) {
+						for (Person pson: peopleInElevator) {
+							String substring = pson.name.substring(0,2);
+							if (substring.equals("MD")) {
+								mdPresent = true;
+							}
+						}
+						if (mdPresent) {
+							f.addToback(buffer);
+						} else {
+							f.removeFromQ(); 
+							i -=1; 
+							peopleInElevator.add(buffer);
+							if (!floorsCalled.contains(buffer.whatFloor)) {
+								floorsCalled.add(buffer.whatFloor);
+							}
+							buffer.getInLift=building.getSimulation().tick;
+							spaceLeft = spaceLeft - buffer.getSpace();
+							howManyPeopleIn = peopleInElevator.size();
+						}
+					} else {
+						f.removeFromQ(); 
+						i -=1; 
+						peopleInElevator.add(buffer);
+						if (!floorsCalled.contains(buffer.whatFloor)) {
+							floorsCalled.add(buffer.whatFloor);
+						}
+						buffer.getInLift=building.getSimulation().tick;
+						spaceLeft = spaceLeft - buffer.getSpace();
+						howManyPeopleIn = peopleInElevator.size();
 					}
-					buffer.getInLift=building.getSimulation().tick;
-					spaceLeft = spaceLeft - buffer.getSpace();
-					howManyPeopleIn = peopleInElevator.size();
-				} else {
+					
+//					f.removeFromQ(); 
+//					i -=1; 
+//					peopleInElevator.add(buffer);
+//					if (!floorsCalled.contains(buffer.whatFloor)) {
+//						floorsCalled.add(buffer.whatFloor);
+//					}
+//					buffer.getInLift=building.getSimulation().tick;
+//					spaceLeft = spaceLeft - buffer.getSpace();
+//					howManyPeopleIn = peopleInElevator.size();
+//					} else {
 					//leave the person in the floor queue is there isnt space
 					//System.out.println("There is no more space");
 				}

@@ -9,13 +9,11 @@ import java.util.Random;
  */
 
 public class Employees extends Person {
-	String name = "Non Developers";
 	int spaceRequired = 1;
 	int minFloor = 1;
 	int maxFloor;
 	int range;
 	int timer=0;
-	
 	/**
 	 * This is the constructor for the Employees and calls the constructor super of Person
 	 *

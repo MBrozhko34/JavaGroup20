@@ -61,6 +61,11 @@ public class Floor {
 	public void arrive(Person P){
 		peopleOnFloor.add(P);
 	}
+	
+	public void addToback(Person P) {
+		leave(P);
+		arrive(P);
+	}
 
 	public void leave(Person p){
 		peopleOnFloor.remove(p);
