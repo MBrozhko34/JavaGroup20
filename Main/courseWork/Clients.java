@@ -14,9 +14,9 @@ public class Clients extends Person {
 	int maxFloor;
 	ArrivalSimulator s;
 	int timer = 0;
-	int mintime = 60;
-	int maxtime= 180;
-	int range = (maxtime - mintime) + mintime;
+	int minTime = 60;
+	int maxTime= 180;
+	int range = (maxTime - minTime) + minTime;
 	int howLong;
 	
 	/**
@@ -33,7 +33,7 @@ public class Clients extends Person {
 		minFloor = 1;
 		maxFloor = ((b.getHowManyFloors()-1)/2);
 		range = (maxFloor - minFloor) +1;
-		howLong = random.nextInt(maxtime - mintime +1)+mintime;
+		howLong = random.nextInt(maxTime - minTime +1)+minTime;
 		choose();
 		
 	}

@@ -18,7 +18,7 @@ public class Floor {
 	public int floornumber;
 	public boolean goDown;
 	public Elevator e;
-	Building b;
+	private Building b;
 	Simulation s;
 	
 	/**
@@ -29,13 +29,13 @@ public class Floor {
 	 * @param S is an instance of the Simulation class.
 	 * @param b is an instance of the Building class.
 	 */
-	public Floor(int floorno,Simulation S, Building b) {
+	public Floor(int floorno,Simulation s, Building b) {
 		peopleOnFloor = new ArrayList<Person>();
 		waitingQueue = new ArrayList<Person>();
 		goUp = false;
 		goDown = false;
 		floornumber = floorno;
-		s = S;
+		this.s = s;
 		this.b=b;
 	}
 	
@@ -84,7 +84,7 @@ public class Floor {
 //		} else {
 //			MoveChecker();
 //		}
-		MoveChecker();
+		moveChecker();
 	}
 	
 	/**
@@ -92,7 +92,7 @@ public class Floor {
 	 * want to stay on the current floor, their initial intentions of moving floors will remain the same as 
 	 * initialised. Otherwise it becomes 'true' and the individual changes floor.
 	 */
-	public void MoveChecker() {
+	public void moveChecker() {
 		for (int i=0; i<peopleOnFloor.size(); i++) {
 			Person buffer = peopleOnFloor.get(i);
 			buffer.tick();

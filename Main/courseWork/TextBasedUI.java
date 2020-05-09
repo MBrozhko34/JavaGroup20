@@ -2,17 +2,17 @@ package courseWork;
 
 public class TextBasedUI {
 
-	Building b;
-	String peoplewaiting = "People waiting for Lift: ";
-	String elevatorppl = "People in this Elevator are ";
-	Simulation s;
-	float totalAverageTime;
-	int allWaiting=0;
-	int complaints=0;
+	public Building b;
+	private static String peoplewaiting = "People waiting for Lift: ";
+	private static String elevatorppl = "People in this Elevator are ";
+	public Simulation s;
+	public float totalAverageTime;
+	public int allWaiting=0;
+	public int complaints=0;
 
-	public TextBasedUI(Building b,Simulation S) {
+	public TextBasedUI(Building b,Simulation s) {
 		this.b = b;
-		this.s = S;
+		this.s = s;
 
 	}
 

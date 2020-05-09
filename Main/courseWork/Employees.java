@@ -9,11 +9,11 @@ import java.util.Random;
  */
 
 public class Employees extends Person {
-	String name = "Non Developers";
-	int spaceRequired = 1;
-	int minFloor = 1;
-	int maxFloor;
-	int range;
+	public String name = "Non Developers";
+	public int spaceRequired = 1;
+	private int minFloor = 1;
+	private int maxFloor;
+	private int range;
 	int timer=0;
 	
 	/**
@@ -25,8 +25,8 @@ public class Employees extends Person {
 	 * @param S this is the class that Deals with all of the probabilities and randomness
 	 * @param R same random object throughout the program
 	 */
-	public Employees(String name, int spaceRequired, Building b, ArrivalSimulator s,Random R) {
-		super(name,spaceRequired, b,s,R);
+	public Employees(String name, int spaceRequired, Building b, ArrivalSimulator s,Random r) {
+		super(name,spaceRequired, b,s,r);
 		maxFloor = b.getHowManyFloors()-1;
 		range = (maxFloor - minFloor) +1;
 		choose();
