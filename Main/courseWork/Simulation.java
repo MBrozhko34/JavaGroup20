@@ -74,7 +74,7 @@ public class Simulation {
 		}
 		System.out.println("The average waiting time is: "+totalAverageTime);
 		System.out.println("The total number of complaints: "+complaints);
-		System.out.println("The probability of P is: "+s.getPProbability()); 
+		System.out.println("The probability of P is: "+s.getThePProbability()); 
 		System.out.println("The probability of Q is: "+s.getQProbability());
 		
 		//if(complaints>5) {

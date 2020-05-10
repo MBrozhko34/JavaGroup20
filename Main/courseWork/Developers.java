@@ -6,7 +6,9 @@ import java.util.Random;
  * The client class is used to assign characteristics to this specific group of people,
  * including their desired floor range and whether they choose to change floors throughout the
  * simulation.
+ * @author Michael and Sahar
  */
+
 
 public class Developers extends Person {
 	int minFloor;

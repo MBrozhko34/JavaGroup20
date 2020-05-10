@@ -80,6 +80,11 @@ public class ArrivalSimulator {
 		return false;
 	}
 	
+	public double getThePProbability() {
+		getPProbability();
+		return P_probability;
+	}
+	
 	/**
 	 * This function gets the qValue from the qList of all possible 'Q' probability values.
 	 * 
