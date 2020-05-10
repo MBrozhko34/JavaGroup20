@@ -1,6 +1,14 @@
 package courseWork;
 import java.util.Random;
 
+/**
+ * This is the template class for the different types of people we have in our simulation
+ * if another type of person would be added most of the logic is already here and the new person
+ * can just inherit from this class
+ * @author amrik
+ *
+ */
+
 public class Person {
 	
 	public String name;
@@ -18,6 +26,16 @@ public class Person {
 	public int startWaiting;
 	public int getInLift;
 	
+	/**
+	 * This is the constructor for the people
+	 *
+	 * @param name The name of object we are creating - this changes depending on what person we want
+	 * @param spaceRequired how much space this person takes in the lift
+	 * @param b the overall building so the person can have access to the floors and the elevators
+	 * @param S this is the class that Deals with all of the probabilities and randomness
+	 * @param R same random object throughout the program
+	 */
+	
 	public Person (String name, int space,Building b, ArrivalSimulator s,Random R) {
 		this.name = name;
 		currentFloor = 0;
@@ -33,12 +51,6 @@ public class Person {
 		return name;
 	}
 	
-	public void buttonPress() {
-		String floor = Integer.toBinaryString(currentFloor);
-		System.out.println("The Lift was called at floor"+floor);
-		
-	}
-	
 	public int returnFloor() {
 		return currentFloor;
 	}
@@ -49,6 +61,11 @@ public class Person {
 //		whatFloor = R.nextInt((numberOfFloors - 1) + 1) + 1;
 //	}
 	
+	/**
+	 * when elevator reaches a floor and person leaves elevator that persons floor is 
+	 * set to the floor the elevator is current at
+	 * @param E Elevator is passed to access the current floor
+	 */
 	public void setFloor(Elevator E) {
 		if (whatFloor == E.getCurrentFloor()) {
 			currentFloor = whatFloor;
@@ -58,15 +75,6 @@ public class Person {
 	
 	public int getSpace() {
 		return spaceRequired;
-	}
-	
-	public int generateTime(int a, int b) { //Generates random number for time on floor
-		Random rd = new Random();
-		int minTickTime = a*6;
-		int maxTickTime = b*6;
-		int value = rd.nextInt((maxTickTime-minTickTime)+1) + minTickTime;
-		return value;
-		
 	}
 	
 	//Function needed be added to Person class to allow for change in floor after first floor:
@@ -98,10 +106,17 @@ public class Person {
 			this.whatFloor = whatFloor;
 		}	
 		
+		/**
+		 * choose function template
+		 */
 		public void choose() {
 			System.out.println("choosing a floor");
 		}
 		
+		/**
+		 * when the simulation runs the people checkif they want to move floor
+		 * if they do then they choose a new floor and tell the simulation they want to move
+		 */
 		public void tick() {
 			if (s.getPProbability()) {
 				wantToMove = true;

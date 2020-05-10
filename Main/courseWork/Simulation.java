@@ -2,7 +2,12 @@ package courseWork;
 
 import java.util.Random;
 
-//import javafx.application.Application;
+/**
+ * This class runs the simulation and creates instances of the classes 
+ * needed for the simulation to run
+ * @author amrik
+ *
+ */
 
 public class Simulation {
 	
@@ -16,16 +21,20 @@ public class Simulation {
 	public Random randomness;
 	public Study studyTest;
 	
-
-
 	public Simulation(MenuController m) {
 		MenuVars = m;
 		tick = 0;
-		
-
 	}
 	
-
+/**
+ * When we want to run the simulation once this function is called
+ * the building, random , arival simulator, peoplecreator and UI objects are all created
+ * we show the building by calling the show Ui once before the building is ticked to see all
+ * the people that are generated
+ * 
+ * We then tick everything in the simulation for however many ticks the user specifies
+ * then show the changes of ticking everything
+ */
 	public void run() {
 		Building building1 = new Building(MenuVars,this);
 		randomness = new Random();
@@ -43,7 +52,12 @@ public class Simulation {
 		}
 	}
 	
-	
+	/**
+	 * The run study runs the simulation but does not show the Ui as we are only intrested in the waiting time and 
+	 * complaint numbers
+	 * @param p to loop through all combinations that p and Q can be
+	 * @param q same as above, in our study can call this function 
+	 */
 	public void runStudy(int p, int q) {
 		Building building1 = new Building(MenuVars,this);
 		randomness = new Random();
@@ -67,7 +81,7 @@ public class Simulation {
 				totalAverageTime=allWaiting/building1.allPeople.size();
 			}
 			if(p1.name=="Client") {
-				if((p1.getInLift-p1.startWaiting)>1) {
+				if((p1.getInLift-p1.startWaiting)>60) {
 					complaints++;
 				}
 			}			
@@ -76,10 +90,6 @@ public class Simulation {
 		System.out.println("The total number of complaints: "+complaints);
 		System.out.println("The probability of P is: "+s.getThePProbability()); 
 		System.out.println("The probability of Q is: "+s.getQProbability());
-		
-		//if(complaints>5) {
-		//	System.out.println("We have had more than 5 complaints, this is bad");
-		//}
 	}
 	
 	public int getAverageWaitingTime() {

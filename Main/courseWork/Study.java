@@ -1,5 +1,13 @@
 package courseWork;
 
+/**
+ * runs the simulation numerous times with different values of p and q
+ * this is done by getting different values from the arrays that hold all of the 
+ * values that p and q could be
+ * @author amrik
+ *
+ */
+
 public class Study {
 	public ArrivalSimulator aSimu; 
 	public Simulation simu; 
