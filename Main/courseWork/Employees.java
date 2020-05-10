@@ -9,10 +9,10 @@ import java.util.Random;
  */
 
 public class Employees extends Person {
-	int spaceRequired = 1;
-	int minFloor = 1;
-	int maxFloor;
-	int range;
+	public int spaceRequired = 1;
+	private int minFloor = 1;
+	private int maxFloor;
+	private int range;
 	int timer=0;
 	/**
 	 * This is the constructor for the Employees and calls the constructor super of Person
@@ -23,8 +23,8 @@ public class Employees extends Person {
 	 * @param S this is the class that Deals with all of the probabilities and randomness
 	 * @param R same random object throughout the program
 	 */
-	public Employees(String name, int spaceRequired, Building b, ArrivalSimulator s,Random R) {
-		super(name,spaceRequired, b,s,R);
+	public Employees(String name, int spaceRequired, Building b, ArrivalSimulator s,Random r) {
+		super(name,spaceRequired, b,s,r);
 		maxFloor = b.getHowManyFloors()-1;
 		range = (maxFloor - minFloor) +1;
 		choose();

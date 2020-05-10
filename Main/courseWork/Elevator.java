@@ -15,8 +15,8 @@ public class Elevator {
 		private ArrayList<Integer> floorsCalled; 
 		private Building building;
 		private int spaceLimit;
-		public static int up = 2;
-		public static int down = 1;
+		public static final int up = 2;
+		public static final int down = 1;
 		public static int idle = 0;
 		private int howManyPeopleIn;
 		//private boolean isOpen;

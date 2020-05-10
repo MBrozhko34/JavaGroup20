@@ -109,7 +109,7 @@ public class MenuController {
 		return Qslider;
 	}
 
-	public int getSeed() {
+	public long getSeed() {
 		return seed.getValue();
 	}
 

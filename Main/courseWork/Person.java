@@ -11,16 +11,16 @@ import java.util.Random;
 
 public class Person {
 	
-	String name;
-	int currentFloor;
-	int spaceRequired;
-	String direction;
-	int whatFloor; // to store what floor the guy wants to go to
-	Building building;
+	public String name;
+	public int currentFloor;
+	public int spaceRequired;
+	public String direction;
+	public int whatFloor; // to store what floor the guy wants to go to
+	public Building building;
 	public String test;
-	ArrivalSimulator s;
+	public ArrivalSimulator s;
 	public boolean wantToMove;
-	Random random;
+	public Random random;
 	protected int arriveTick;
 	protected boolean done = false;
 	public int startWaiting;

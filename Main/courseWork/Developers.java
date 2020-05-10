@@ -6,7 +6,9 @@ import java.util.Random;
  * The client class is used to assign characteristics to this specific group of people,
  * including their desired floor range and whether they choose to change floors throughout the
  * simulation.
+ * @author Michael and Sahar
  */
+
 
 public class Developers extends Person {
 	int minFloor;
@@ -24,8 +26,8 @@ public class Developers extends Person {
 	 * @param S this is the class that Deals with all of the probabilities and randomness
 	 * @param R same random object throughout the program
 	 */
-	public Developers(String name, int spaceRequired, Building b,ArrivalSimulator s,Random R) {
-		super(name,spaceRequired, b,s,R);
+	public Developers(String name, int spaceRequired, Building b,ArrivalSimulator s,Random r) {
+		super(name,spaceRequired, b,s,r);
 		minFloor = (b.getHowManyFloors()-1)/2;
 		maxFloor = b.getHowManyFloors()-1;
 		range = (maxFloor - minFloor) +1;

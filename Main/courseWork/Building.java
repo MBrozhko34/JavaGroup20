@@ -26,12 +26,12 @@ public class Building {
 	 * @param S is an instance of the Simulation class and is used to create movement within
 	 * the simulation
 	 */
-	public Building(MenuController m,Simulation S) {
+	public Building(MenuController m,Simulation s) {
 		floors = new ArrayList<Floor>();
 		howManyFloors = m.getFloors();
 		noElevators = m.getElevators();
 		elevatorcap = m.getElevatorcap();
-		s = S;
+		this.s = s;
 		create();
 		
 	}
