@@ -9,8 +9,8 @@ package courseWork;
  */
 
 public class Study {
-	ArrivalSimulator aSimu; 
-	Simulation simu; 
+	public ArrivalSimulator aSimu; 
+	public Simulation simu; 
 	private int p;
 	private int q;
 
@@ -27,11 +27,7 @@ public class Study {
 			p++;
 			q++;
 		}
-		
-		
-		
 	}
-
 }
 
 

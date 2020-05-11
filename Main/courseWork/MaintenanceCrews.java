@@ -8,12 +8,12 @@ import java.util.Random;
 */
 
 public class MaintenanceCrews extends Person{
-	int currentFloor=0;
-	ArrivalSimulator s;
-	Floor f;
-	int mintime = 120;
-	int maxtime= 240;
-	int range = (maxtime - mintime) + mintime;
+	public int currentFloor=0;
+	public ArrivalSimulator s;
+	public Floor f;
+	private static final int minTime = 120;
+	private static final int maxTime= 240;
+	int range = (maxTime - minTime) + minTime;
 	int howLong;
 	
 	
@@ -26,11 +26,11 @@ public class MaintenanceCrews extends Person{
 	 * @param S this is the class that Deals with all of the probabilities and randomness
 	 * @param R same random object throughout the program
 	 */
-	public MaintenanceCrews(String name, int spaceRequired, Building b,ArrivalSimulator S,Random R) {
-		super(name,spaceRequired, b,S,R);
+	public MaintenanceCrews(String name, int spaceRequired, Building b,ArrivalSimulator s,Random r) {
+		super(name,spaceRequired, b,s,r);
 		this.spaceRequired=spaceRequired;
 		whatFloor = building.getHowManyFloors()-1;
-		howLong = random.nextInt(maxtime - mintime +1)+mintime;
+		howLong = random.nextInt(maxTime - minTime +1)+minTime;
 	}
 	
 	/**

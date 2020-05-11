@@ -11,15 +11,15 @@ import java.util.Random;
 
 public class Simulation {
 	
-	MenuController MenuVars;
-	TextBasedUI Ui;
+	private MenuController MenuVars;
+	private TextBasedUI Ui;
 	public int tick;
-	int allWaiting=0;
-	int totalAverageTime;
-	Clients c1;
-	int complaints=0;
-	Random randomness;
-	Study studyTest;
+	public static int allWaiting=0;
+	public int totalAverageTime;
+	public Clients c1;
+	public int complaints=0;
+	public Random randomness;
+	public Study studyTest;
 	
 	public Simulation(MenuController m) {
 		MenuVars = m;
@@ -88,7 +88,7 @@ public class Simulation {
 		}
 		System.out.println("The average waiting time is: "+totalAverageTime);
 		System.out.println("The total number of complaints: "+complaints);
-		System.out.println("The probability of P is: "+s.getPProbability()); 
+		System.out.println("The probability of P is: "+s.getThePProbability()); 
 		System.out.println("The probability of Q is: "+s.getQProbability());
 	}
 	

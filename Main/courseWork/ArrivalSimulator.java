@@ -13,8 +13,8 @@ public class ArrivalSimulator {
 	private double P_probability;
 	private double Q_probability;
 	
-	private int pValue;
-	private int qValue;
+	private final int pValue;
+	private final int qValue;
 	
 	private List<Double> pList = new ArrayList<>();
 	private List<Double> qList = new ArrayList<>();
@@ -78,6 +78,11 @@ public class ArrivalSimulator {
 			return true;
 		}
 		return false;
+	}
+	
+	public double getThePProbability() {
+		getPProbability();
+		return P_probability;
 	}
 	
 	/**

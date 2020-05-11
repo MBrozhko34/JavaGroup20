@@ -4,11 +4,11 @@ import java.util.Random;
 
 public class PeopleCreator {
 	
-	MenuController values;
-	Building B;
-	int totaldevs;
-	ArrivalSimulator sim;
-	Random random;
+	private MenuController values;
+	private Building B;
+	public int totaldevs;
+	private ArrivalSimulator sim;
+	public Random random;
 	
 	/**
 	 * This is the constructor for the PeopleCreator class and its purpose is to
@@ -21,11 +21,11 @@ public class PeopleCreator {
 	 */
 	
 
-	public PeopleCreator(MenuController m, Building b, ArrivalSimulator s,Random R) {
+	public PeopleCreator(MenuController m, Building b, ArrivalSimulator s,Random r) {
 		values = m;
 		B = b;
 		sim = s;
-		random = R;
+		random = r;
 		totaldevs = values.getMugdevs() + values.getGoggledevs();
 		createEmployees();
 		createDevs();

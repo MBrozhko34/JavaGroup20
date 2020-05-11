@@ -11,9 +11,9 @@ public class Building {
 	
 	private ArrayList<Floor> floors;
 	public ArrayList<Elevator> elevators;
-	private int howManyFloors;
-	private int noElevators;
-	private int elevatorcap;
+	private final int howManyFloors;
+	private final int noElevators;
+	private final int elevatorcap;
 	private Simulation s;
 	public ArrayList<Person> allPeople = new ArrayList<Person>();
 	
@@ -26,12 +26,12 @@ public class Building {
 	 * @param S is an instance of the Simulation class and is used to create movement within
 	 * the simulation
 	 */
-	public Building(MenuController m,Simulation S) {
+	public Building(MenuController m,Simulation s) {
 		floors = new ArrayList<Floor>();
 		howManyFloors = m.getFloors();
 		noElevators = m.getElevators();
 		elevatorcap = m.getElevatorcap();
-		s = S;
+		this.s = s;
 		create();
 		
 	}
