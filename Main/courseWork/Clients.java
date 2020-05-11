@@ -14,8 +14,8 @@ public class Clients extends Person {
 	int maxFloor;
 	ArrivalSimulator s;
 	int timer = 0;
-	int minTime = 60;
-	int maxTime= 180;
+	final int minTime = 60;
+	final int maxTime= 180;
 	int range = (maxTime - minTime) + minTime;
 	int howLong;
 	

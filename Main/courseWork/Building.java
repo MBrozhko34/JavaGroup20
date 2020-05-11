@@ -11,9 +11,9 @@ public class Building {
 	
 	private ArrayList<Floor> floors;
 	public ArrayList<Elevator> elevators;
-	private int howManyFloors;
-	private int noElevators;
-	private int elevatorcap;
+	private final int howManyFloors;
+	private final int noElevators;
+	private final int elevatorcap;
 	private Simulation s;
 	public ArrayList<Person> allPeople = new ArrayList<Person>();
 	

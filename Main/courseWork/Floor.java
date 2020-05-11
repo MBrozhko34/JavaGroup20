@@ -63,8 +63,8 @@ public class Floor {
 	}
 	
 	public void addToback(Person P) {
-		leave(P);
-		arrive(P);
+		waitingQueue.remove(P);
+		waitingQueue.add(P);
 	}
 
 	public void leave(Person p){
